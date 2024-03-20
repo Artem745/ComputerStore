@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Julius+Sans+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'general/img/logo.ico' %}">
+    <link rel="stylesheet" href="{% static 'general/css/normalize.css' %}">
+    {% block link %}
+    {% endblock %}
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

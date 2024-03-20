@@ -1,0 +1,137 @@
+{% extends 'general/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Competh - Home
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'shopapp/css/main.css' %}">
+{% endblock %}
+
+{% block bodyclass %}dark{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <header class="header" id="home">
+        <div class="header__container _container">        
+            <a class="header-logo__link" href="{% url "shopapp:home" %}"><img class="header-logo" src="{% static 'shopapp/img/header/logo.png' %}" alt="logo"></a>
+            <a href="#"><button class="header-button" href="#">Shop</button></a>
+            <ul class="header__row">
+                <li class="header__item"><a href="#about-us">About us</a></li>
+                <li class="header__item"><a href="#contact">Contact</a></li>  
+                <li class="header__item header__item-l"><a class="header__item-login" href="{% url "auth:login" %}">Login</a></li>  
+            </ul>
+            <img class="header-menu" src="{% static 'shopapp/img/header/menu.png' %}" alt="menu">
+        </div>
+    </header>
+     
+    <div class="_container">
+        <div class="main">
+            <p class="title">Best computer devices</p>
+            <img src="{% static 'shopapp/img/main/mainimg.png' %}" alt="">
+            <div class="main-button__div">
+                <a href="#"><button class="main-button">SHOP</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="_container components-container">
+        <p class="components-title title">Pick up components for your computer</p>
+
+        <div class="components">
+            
+            <a href="#" class="components__item">
+                <img src="{% static "shopapp/img/component/processor.png" %}" alt="Processors">
+                <p>Processors</p>
+            </a>
+            <a href="#" class="components__item">
+                <img class="components__item__videocard" src="{% static "shopapp/img/component/videocard.png" %}" alt="Videocards" >
+                <p>Videocards</p>
+            </a>
+            <a href="#" class="components__item">
+                <img class="components__item__motherboard" src="{% static "shopapp/img/component/motherboard.png" %}" alt="Motherboards">
+                <p>Motherboards</p>
+            </a>
+            <a href="#" class="components__item">
+                <img src="{% static "shopapp/img/component/drive.png" %}" alt="Drives">
+                <p>Drives</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="_container">
+        <div class="about-us" id="about-us">
+            <p class="title about-us__title">About us</p>
+            <p class="about-us__text">
+                Welcome to Comptech, your premier destination for top-notch technology solutions. 
+                At Comptech, we offer a curated selection of the latest laptops, desktops, peripherals, and accessories to meet your computing needs. 
+                Experience the difference with Comptech, where quality and customer satisfaction are our top priorities.
+            </p>
+            <p class="title about-us__title about-us__title2">We provide</p>
+            <div class="providings">
+                <div class="provide1">
+                    <img src="{% static 'shopapp/img/main/provide/provide1.png' %}" alt="">
+                    <p class="provide-title">Free delivery</p>
+                    <p class="provide-subtitle">For all orders from 100$</p>
+                </div>
+                <div class="provide2">
+                    <img src="{% static 'shopapp/img/main/provide/provide2.png' %}" alt="">
+                    <p class="provide-title">Money refunds</p>
+                    <p class="provide-subtitle">30 days warranty</p>
+                </div>
+                <div class="provide3">
+                    <img src="{% static 'shopapp/img/main/provide/provide3.png' %}" alt="">
+                    <p class="provide-title">Support 24/7</p>
+                    <p class="provide-subtitle">We work around the clock</p>
+                </div>
+                <div class="provide4">
+                    <img src="{% static 'shopapp/img/main/provide/provide4.png' %}" alt="">
+                    <p class="provide-title">Fast deivery</p>
+                    <p class="provide-subtitle">In 2-4 buisness days</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="burger-menu__container">
+        <div class="burger-menu">
+            <div class="burger-menu__close"></div>
+            <div class="burger-menu__header">
+                <ul class="burger-menu__row">
+                    <li class="burger-menu__item">Shop</li><br>
+                    <li class="burger-menu__item">Login</li><br>
+                    <li class="burger-menu__item">About us</li><br>
+                    <li class="burger-menu__item">Contact</li><br>
+                </ul>
+            </div>
+            <div class="burger-menu__theme">
+                <p class="about-us__text">Change theme</p>
+                <div class="burger-menu__theme-container">
+                    <div class="burger-menu__theme-dark"></div>
+                    <div class="burger-menu__theme-light"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blackout"></div>
+    <footer class="footer" id="contact">
+        <div class="footer__container _container">
+            <ul class="social-links">   
+                <li><div class="social-img social-img1"><a href="https://telegram.org/" target="_blank"><img src="{% static 'shopapp/img/footer/social/telegram.png' %}" alt="telegram"></a></div></li>
+                <li><div class="social-img social-img1"><a href="https://www.instagram.com/" target="_blank"><img src="{% static 'shopapp/img/footer/social/instagram.png' %}" alt="instagram"></a></div></li>
+                <li><div class="social-img social-img1"><a href="https://www.facebook.com/" target="_blank"><img src="{% static 'shopapp/img/footer/social/facebook.png' %}" alt="facebook"></a></div></li>
+            </ul>
+            <ul class="footer-nav__row">
+                <li class="footer-nav__item"><a href="#home">Home</a></li>
+                <li class="footer-nav__item"><a href="#">Shop</a></li>
+            <li class="footer-nav__item"><a href="#about-us">About us</a></li>
+            </ul>
+            <p class="footer-copyright">&copy; 2024 Comptech Inc. All Rights Reserved</p>
+        </div>
+    </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+<script src="{% static 'shopapp/js/script.js' %}"></script>
+{% endblock %}

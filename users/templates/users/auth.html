@@ -1,0 +1,39 @@
+{% extends 'general/base.html' %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'users/css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-header">
+    <a href="{% url "shopapp:home" %}"><img src="{% static "users/img/logo.png" %}" alt="logo"></a>
+</div>
+<div class="auth-main">
+    <div class="auth-container">
+        <h1 class="auth-title">{% block auth-title%}{% endblock %}</h1>
+        <h2 class="auth-subtitle">Using the service</h2>
+        <div class="auth-services"></div>
+
+        <form method="post" class="auth-form">
+            <label>
+              Email:<br>
+              <input cname="email" class="auth-input"/><br>
+            </label>
+            <label>
+                Password:<br>
+                <input name="password" class="auth-input"/><br>
+            </label>
+            {% block signup %}  
+            {% endblock %}
+
+            <button class="auth-button auth-title">{% block auth-button %}{% endblock %}</button>
+        </form>
+        <div class="anotherway">
+            {% block anotherway %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

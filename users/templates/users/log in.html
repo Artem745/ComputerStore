@@ -1,0 +1,20 @@
+{% extends 'users/auth.html' %}
+
+{% block title %}
+Competh - Log in
+{% endblock %}
+
+{% block auth-title %}
+Login to your account
+{% endblock %}
+
+{% block anotherway %}
+<h2 class="auth-subtitle">Don't have an account?</h2>
+<a href="{% url "auth:signup" %}">
+    <h1 class="auth-title auth-title__signup">Sign up</h1>
+</a>
+{% endblock %}
+
+{% block auth-button %}
+Log in
+{% endblock %}

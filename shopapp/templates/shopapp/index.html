@@ -1,0 +1,81 @@
+{% extends 'general/home.html' %}
+
+{% load static %}
+
+{% block title %}
+Competh - Home
+{% endblock %}
+
+{% block main_content %}
+<div class="wrapper">
+
+    <div class="_container">
+        <div class="main">
+            <p class="title">Best computer devices</p>
+            <img src="{% static 'shopapp/img/main/mainimg.png' %}" alt="">
+            <div class="main-button__div">
+                <a href="#"><button class="main-button">SHOP</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="_container components-container">
+        <p class="components-title title">Pick up components for your computer</p>
+
+        <div class="components">
+            
+            <a href="#" class="components__item">
+                <img src="{% static "shopapp/img/component/processor.png" %}" alt="Processors">
+                <p>Processors</p>
+            </a>
+            <a href="#" class="components__item">
+                <img class="components__item__videocard" src="{% static "shopapp/img/component/videocard.png" %}" alt="Videocards" >
+                <p>Videocards</p>
+            </a>
+            <a href="#" class="components__item">
+                <img class="components__item__motherboard" src="{% static "shopapp/img/component/motherboard.png" %}" alt="Motherboards">
+                <p>Motherboards</p>
+            </a>
+            <a href="#" class="components__item">
+                <img src="{% static "shopapp/img/component/drive.png" %}" alt="Drives">
+                <p>Drives</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="_container">
+        <div class="about-us" id="about-us">
+            <p class="title about-us__title">About us</p>
+            <p class="about-us__text">
+                Welcome to Comptech, your premier destination for top-notch technology solutions. 
+                At Comptech, we offer a curated selection of the latest laptops, desktops, peripherals, and accessories to meet your computing needs. 
+                Experience the difference with Comptech, where quality and customer satisfaction are our top priorities.
+            </p>
+            <p class="title about-us__title about-us__title2">We provide</p>
+            <div class="providings">
+                <div class="provide1">
+                    <img src="{% static 'shopapp/img/main/provide/provide1.png' %}" alt="">
+                    <p class="provide-title">Free delivery</p>
+                    <p class="provide-subtitle">For all orders from 100$</p>
+                </div>
+                <div class="provide2">
+                    <img src="{% static 'shopapp/img/main/provide/provide2.png' %}" alt="">
+                    <p class="provide-title">Money refunds</p>
+                    <p class="provide-subtitle">30 days warranty</p>
+                </div>
+                <div class="provide3">
+                    <img src="{% static 'shopapp/img/main/provide/provide3.png' %}" alt="">
+                    <p class="provide-title">Support 24/7</p>
+                    <p class="provide-subtitle">We work around the clock</p>
+                </div>
+                <div class="provide4">
+                    <img src="{% static 'shopapp/img/main/provide/provide4.png' %}" alt="">
+                    <p class="provide-title">Fast deivery</p>
+                    <p class="provide-subtitle">In 2-4 buisness days</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
