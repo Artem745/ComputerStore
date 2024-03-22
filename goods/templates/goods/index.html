@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-Competh - Catalog
+{{ title }}
 {% endblock %}
 
 {% block link %}
@@ -12,4 +12,19 @@ Competh - Catalog
 {% endblock %}
 
 {% block main_content %}
+<div class="main_content">
+    <div class="_container _container-catalog">
+        <div class="catalog-container">
+            {% for obj in goods %}
+                <div class="catalog__item">
+                    <img src="{% static obj.img %}" alt="" class="catalog__item-img">
+                    <h2 class="subtitle">{{ obj.title }}</h2>
+                    <h3 class="subtitle subtitle-price">{{ obj.price }}</h3>
+                    <a href="#"><img src="{% static "goods/img/basket.png" %}" alt="" class="basket"></a>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
 {% endblock %}

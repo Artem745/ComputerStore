@@ -13,7 +13,7 @@
     <header class="header" id="home">
         <div class="header__container _container">        
             <a class="header-logo__link" href="{% url "shopapp:home" %}"><img class="header-logo" src="{% static 'shopapp/img/header/logo.png' %}" alt="logo"></a>
-            <a href="{% url "goods:catalog" %}"><button class="header-button" href="#">Shop</button></a>
+            <a href="{% url "goods:catalog" %}"><button class="header-button" href="#">Catalog</button></a>
             <ul class="header__row">
                 <li class="header__item"><a href="#about-us">About us</a></li>
                 <li class="header__item"><a href="#contact">Contact</a></li>  
@@ -56,7 +56,7 @@
             </ul>
             <ul class="footer-nav__row">
                 <li class="footer-nav__item"><a href="#home">Home</a></li>
-                <li class="footer-nav__item"><a href="#">Shop</a></li>
+                <li class="footer-nav__item"><a href="{% url "goods:catalog" %}">Shop</a></li>
             <li class="footer-nav__item"><a href="#about-us">About us</a></li>
             </ul>
             <p class="footer-copyright">&copy; 2024 Comptech Inc. All Rights Reserved</p>
