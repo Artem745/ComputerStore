@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block link %}
-<link rel="stylesheet" href="{% static 'shopapp/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'general/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'shopapp/css/shopapp.css' %}">
 {% endblock %}
 
 {% block bodyclass %}dark{% endblock %}
@@ -13,15 +14,31 @@
     <header class="header" id="home">
         <div class="header__container _container">        
             <a class="header-logo__link" href="{% url "shopapp:home" %}"><img class="header-logo" src="{% static 'shopapp/img/header/logo.png' %}" alt="logo"></a>
-            <a href="{% url "goods:catalog" %}"><button class="header-button" href="#">Catalog</button></a>
+            <button class="header-button">Catalog</button>
             <ul class="header__row">
-                <li class="header__item"><a href="#about-us">About us</a></li>
-                <li class="header__item"><a href="#contact">Contact</a></li>  
-                <li class="header__item header__item-l"><a class="header__item-login" href="{% url "auth:login" %}">Login</a></li>  
+                <li><a href="#about-us" class="header__item">About us</a></li>
+                <li><a href="#contact" class="header__item">Contact</a></li>  
+                <li><a class="header__item header__item-l" href="{% url "auth:login" %}">Login</a></li>  
             </ul>
             <img class="header-menu" src="{% static 'shopapp/img/header/menu.png' %}" alt="menu">
         </div>
     </header>
+
+    <div class="_container catalog-menu-container">
+        <div class="catalog-menu">
+            <ul class="catalog-menu__row">
+                {% for category in categories %}
+                <li>
+                    <a href="">
+                        <div class="catalog-menu__item">
+                            <span class="subtitle">{{ category.name }}</span>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
     {% block main_content %}{% endblock%}
 
@@ -55,9 +72,9 @@
                 <li><div class="social-img social-img1"><a href="https://www.facebook.com/" target="_blank"><img src="{% static 'shopapp/img/footer/social/facebook.png' %}" alt="facebook"></a></div></li>
             </ul>
             <ul class="footer-nav__row">
-                <li class="footer-nav__item"><a href="#home">Home</a></li>
-                <li class="footer-nav__item"><a href="{% url "goods:catalog" %}">Shop</a></li>
-            <li class="footer-nav__item"><a href="#about-us">About us</a></li>
+                <li><a class="footer-nav__item" href="#home">Home</a></li>
+                <li><a class="footer-nav__item" href="{% url "goods:catalog" %}">Shop</a></li>
+            <li><a class="footer-nav__item" href="#about-us">About us</a></li>
             </ul>
             <p class="footer-copyright">&copy; 2024 Comptech Inc. All Rights Reserved</p>
         </div>

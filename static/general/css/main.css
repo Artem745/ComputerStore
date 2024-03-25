@@ -1,0 +1,50 @@
+*{
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #c603d7;
+}
+
+body.dark{
+    --color-bg: #070010;
+    --color-bg-header: #0d0316;
+    --color-theme-border: #D8BAFF;
+}
+body.light{
+    --color-bg: #D8BAFF;
+    --color-bg-header: #d0acff;
+    --color-theme-border: #0D0316;
+}
+body{
+    width: 100vw;
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease;
+}
+
+._container{
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.title{
+    width: 65%;
+    max-height: 300px;
+    font-family: "Julius Sans One", sans-serif;
+    color: #C603D7;
+    font-size: 128px;
+    text-shadow: 0 0 100px #c503d7, 0 0 100px #c503d7;
+}
+.subtitle{
+    font-family: "Inter";
+    font-weight: 800;
+    font-size: 30px;
+    color: #9747FF;
+}
+.subtitle2{
+    font-family: "Inter";
+    font-weight: 800;
+    font-size: 17px;
+    color: #6D32BA;
+}

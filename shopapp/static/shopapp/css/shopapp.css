@@ -1,37 +1,7 @@
-li, a, button{
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    color: #c603d7;
-}
-
-body.dark{
-    --color-bg: #070010;
-    --color-bg-header: #0d0316;
-    --color-theme-border: #D8BAFF;
-}
-body.light{
-    --color-bg: #D8BAFF;
-    --color-bg-header: #D8BAFF;
-    --color-theme-border: #0D0316;
-}
-
-body{
-    width: 100vw;
-    background-color: var(--color-bg);
-    overflow-x: hidden;
-    transition: background-color 0.3s ease;
-}
-
 /*!!!!!!!!!!!!!!!!! HEADER !!!!!!!!!!!!!!!!!*/
 
-._container{
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 15px;
-}
 .header{
-    z-index: 50;
+    z-index: 2;
     width: 100%;
     height: 100px;
     box-shadow: 0px 4px 10px rgb(57, 0, 107);
@@ -39,6 +9,7 @@ body{
     transition: background-color 0.3s ease;
 }
 .header__container{
+    z-index: 2;
     height: 100%;
     display: flex;
     position: relative;
@@ -47,7 +18,7 @@ body{
 }
 .header-logo__link{
     position: relative;
-    z-index: 1;
+    z-index: 3;
     margin-right: auto;
 }
 .header-logo{
@@ -62,8 +33,13 @@ body{
     display: inline-block;
     margin: 0px 35px;
 }
-.header__row .header__item-l{
-    margin-left: 60px;
+.header__item{
+    font-family: "Montserrat";
+}
+.header__item-l{
+    position: relative;
+
+    margin-left: 15px;
 }
 .header__item:before{
     content:"";
@@ -77,10 +53,7 @@ body{
 .header__item:hover:before{
     width: 100%;
 }
-.header__item-login{
-    position: relative;
-}
-.header__item-login:after{
+.header__item-l:after{
     content: "";
     background-image: url('/static/shopapp/img/header/login.png');
     background-size: cover;
@@ -93,6 +66,7 @@ body{
 }
 
 .header-button{
+    font-family: "Montserrat";
     padding: 10px 40px;
     color: #C603D7;
     background-color: transparent;
@@ -107,7 +81,7 @@ body{
     height: 80%;
     margin: 0 0 0 7%;
     cursor: pointer;
-    z-index: 1;
+    z-index: 3;
     transition: filter 0.3s ease;
 }
 .header-menu:hover{
@@ -125,20 +99,55 @@ body{
 
 /*!!!!!!!!!!!!!!!!! /HEADER !!!!!!!!!!!!!!!!!*/
 
+/*!!!!!!!!!!!!!!!!!  CATALOG  !!!!!!!!!!!!!!!!!*/
+.catalog-menu-container{
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin: 150px auto 0 auto;
+}
+
+.catalog-menu{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg-header);
+    width: 100%;
+    height: 70vh;
+    padding: 20px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.catalog-menu.active{
+    opacity: 1;
+    visibility: visible;
+}
+.catalog-menu__item {
+    position: relative;
+    width: 20%;
+    padding: 15px 0 15px 10px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #90069C;
+    transition: border 0.2s ease;
+
+}
+.catalog-menu__item:hover {
+    border: 1px solid #C603D7;
+
+}
+
+/*!!!!!!!!!!!!!!!!!  /CATALOG  !!!!!!!!!!!!!!!!!*/
+
 /*!!!!!!!!!!!!!!!!! MAIN !!!!!!!!!!!!!!!!!*/
 
 .main{
     margin: 100px 0 0 0;
     display: flex;
     position: relative;
-}
-.title{
-    width: 65%;
-    max-height: 300px;
-    font-family: "Julius Sans One", sans-serif;
-    color: #C603D7;
-    font-size: 128px;
-    text-shadow: 0 0 100px #c503d7, 0 0 100px #c503d7;
 }
 .main img{
     width: 450px;
@@ -151,7 +160,6 @@ body{
     position: absolute;
     margin: 450px 0 0 0;
 }
-
 .main-button{
     position: relative;
     overflow: hidden;
@@ -196,7 +204,6 @@ body{
     }   
     .main-button__div{
         margin: 400px 0 0 0;
-
     } 
 }
 @media (max-width:1055px){
@@ -213,7 +220,6 @@ body{
         width: 170px;
         height: 65px;
         font-size: 24px;
-
     }
 }
 @media (max-width:820px){
@@ -228,7 +234,6 @@ body{
     .main img{
         display: none;
     }
-    
 }
 
 /*!!!!!!!!!!!!!!!!! /MAIN !!!!!!!!!!!!!!!!!*/
@@ -237,7 +242,6 @@ body{
 
 .about-us{
     margin: 150px 0 0 0;
-
 }
 .about-us__title{
     width: 100%;
@@ -266,22 +270,11 @@ body{
     position: relative;
     overflow: hidden;
 }
-.providings .provide-title{
-    font-family: "Inter";
-    font-weight: 800;
-    font-size: 30px;
-    color: #9747FF;
-
-}
 .providings div img{
     display: block;
     margin: 5px auto;
 }
 .providings .provide-subtitle{
-    font-family: "Inter";
-    font-weight: 800;
-    font-size: 17px;
-    color: #6D32BA;
     margin: 5px 0;
 }
 
@@ -331,12 +324,9 @@ div:before {transform: rotate(-45deg);}
 .burger-menu__container.active{
     right: 0;
 }
-
 .burger-menu__item{
     font-size: 24px;
 }
-
-
 .burger-menu__theme{
     width: 100%;
     height: 140px;
@@ -376,7 +366,7 @@ div:before {transform: rotate(-45deg);}
     z-index: 2;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 .blackout.active{
     visibility: visible;
@@ -399,7 +389,6 @@ div:before {transform: rotate(-45deg);}
         left: 20%;
         margin: 130px 0 0 0;
     }
-
     .burger-menu__header li{
         display: inline-block;
         position: relative;
@@ -427,7 +416,6 @@ div:before {transform: rotate(-45deg);}
         width: 50px;
         height: 50px;
     }
-
 }
 /*!!!!!!!!!!!!!!!!!  /MENU !!!!!!!!!!!!!!!!!*/
 
@@ -471,11 +459,12 @@ div:before {transform: rotate(-45deg);}
 }
 .footer-nav__item{
     position: relative;
+    font-family: "Montserrat";
     font-size: 20px;
 }
 .footer-nav__item:before{
     position: absolute;
-    bottom: -3px;
+    bottom: 0;
     left: 0;
     width: 0;
     border-top: 1px solid #C603D7;
@@ -544,6 +533,7 @@ body::-webkit-scrollbar-thumb {
     border: 2px solid #C603D7;
     border-radius: 0px;
     margin-right: 30px;
+    z-index: 1;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .components__item:hover{
