@@ -1,6 +1,7 @@
 {% extends "general/base.html" %}
 
 {% load static %}
+{% load goods_tags %}
 
 {% block link %}
 <link rel="stylesheet" href="{% static 'general/css/main.css' %}">
@@ -27,9 +28,10 @@
     <div class="_container catalog-menu-container">
         <div class="catalog-menu">
             <ul class="catalog-menu__row">
+                {% tag_categories as categories %}
                 {% for category in categories %}
                 <li>
-                    <a href="">
+                    <a href="{% url "goods:catalog" %}">
                         <div class="catalog-menu__item">
                             <span class="subtitle">{{ category.name }}</span>
                         </div>

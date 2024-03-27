@@ -10,18 +10,39 @@
 <link rel="stylesheet" href="{% static 'general/css/main.css' %}">
 <link rel="stylesheet" href="{% static 'shopapp/css/shopapp.css' %}">
 <link rel="stylesheet" href="{% static 'goods/css/goods.css' %}">
+
 {% endblock %}
 
 {% block main_content %}
 <div class="main_content">
     <div class="_container _container-catalog">
         <div class="catalog-container">
-            {% for obj in goods %}
+            {% for product in goods %}
                 <div class="catalog__item">
-                    <img src="{% static obj.img %}" alt="" class="catalog__item-img">
-                    <h2 class="subtitle">{{ obj.title }}</h2>
-                    <h3 class="subtitle subtitle-price">{{ obj.price }}</h3>
-                    <a href="#"><img src="{% static "goods/img/basket.png" %}" alt="" class="basket"></a>
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="catalog__item-img">
+                    {% else %}
+                        <img src="{% static "goods/img/image-not-found2.png" %}" alt="" class="catalog__item-img">
+                    {% endif %}
+                    <div class="catalog__item-container">
+                        <h2 class="subtitle subtitle-goods">{{ product.name }}</h2>
+                        {% if product.discount %}
+                            <div class="discount_container">
+                                -{{ product.discount }} %
+                            </div>
+                            <div class="price_container">
+                                <h3 class="subtitle subtitle-goods subtitle-price subtitle-price__old">{{ product.price }} $</h3>
+                                <h3 class="subtitle subtitle-goods subtitle-price">{{ product.discount_price }} $</h3>
+                            </div>
+                        {% else %}
+                            <div class="price_container">
+                                <h3 class="subtitle subtitle-goods subtitle-price">{{ product.price }} $</h3>
+                            </div>
+                        {% endif %}
+                        
+                        
+                        <a href="#"><img src="{% static "goods/img/basket.png" %}" alt="" class="basket"></a>
+                    </div>
                 </div>
             {% endfor %}
 

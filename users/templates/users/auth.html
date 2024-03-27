@@ -17,13 +17,14 @@
         <div class="auth-services"></div>
 
         <form method="post" class="auth-form">
+            {% csrf_token %}
             <label>
               Email:<br>
-              <input cname="email" class="auth-input"/><br>
+              <input type="email" name="email" class="auth-input"/><br>
             </label>
             <label>
                 Password:<br>
-                <input name="password" class="auth-input"/><br>
+                <input type="password" name="password" class="auth-input"/><br>
             </label>
             {% block signup %}  
             {% endblock %}

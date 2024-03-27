@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    $('.header-menu, .burger-menu__close').click(function (event) {
-        $('.burger-menu__container').toggleClass('active');
-        $('body').toggleClass('lock')
-        $(".blackout").toggleClass('active');
+    $('.header-menu').click(function (event) {
+        $('.burger-menu__container').addClass('active');
+        $('body').css('overflow', "hidden");
+        $(".blackout").addClass('active');
         updateCursor();
     });
 
@@ -38,7 +38,17 @@ $(document).ready(function () {
             $('.burger-menu__theme-light').css('cursor', 'default');
         }
     };
+
+    $('.burger-menu__close').click(function (event) {
+        $('.burger-menu__container').removeClass('active');
+        $('body').css('overflow-y', "visible");
+        $(".blackout").removeClass('active');
+    }
+    );
+
+
     $('.header-button').click(function (event) {
+        $('body').css('overflow-y', "hidden");
         $('.catalog-menu').addClass('active');
         $(".blackout").addClass('active');
     });
@@ -49,25 +59,23 @@ $(document).ready(function () {
 $(document).mouseup(function (e) { // событие клика по веб-документу
     var div = $(".burger-menu__container"); // тут указываем ID элемента
 
-    if ($('body').hasClass('lock')) {
+    if ($(div).hasClass('active')) {
         if (!div.is(e.target) // если клик был не по нашему блоку
             && div.has(e.target).length === 0) { // и не по его дочерним элементам
-            div.css('translateX', "50%");
-            $('body').removeClass('lock');
-            $('.burger-menu__container').removeClass('active');
+            $('body').css('overflow-y', "visible");
+            $(div).removeClass('active');
             $(".blackout").removeClass('active');
         }
     } else {
         var div2 = $(".catalog-menu"); // тут указываем ID элемента
         if (!div2.is(e.target)
             && div2.has(e.target).length === 0) {
-            $(".catalog-menu").removeClass('active');
+            $(div2).removeClass('active');
+            $('body').css('overflow-y', "visible");
             $(".blackout").removeClass('active');
+
+
         }
     }
 }
 );
-// $(document).mouseup(function (e) { // событие клика по веб-документу
-    
-//     }
-// );

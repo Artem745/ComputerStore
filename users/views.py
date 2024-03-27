@@ -2,7 +2,13 @@ from django.shortcuts import render
 
 # Create your views here.
 def login_page(request):
-    return render(request, "users/log in.html")
+    context = {
+        "title": "Competh - Log in"
+    }
+    return render(request, "users/log in.html", context)
 
 def signup_page(request):
-    return render(request, "users/sign up.html")
+    context = {
+        "title": "Competh - Sign up"
+    }
+    return render(request, "users/sign up.html", context)

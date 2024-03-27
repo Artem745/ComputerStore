@@ -1,7 +1,7 @@
 /*!!!!!!!!!!!!!!!!! HEADER !!!!!!!!!!!!!!!!!*/
 
 .header{
-    z-index: 2;
+    z-index: 1;
     width: 100%;
     height: 100px;
     box-shadow: 0px 4px 10px rgb(57, 0, 107);
@@ -9,7 +9,7 @@
     transition: background-color 0.3s ease;
 }
 .header__container{
-    z-index: 2;
+    z-index: 1;
     height: 100%;
     display: flex;
     position: relative;
@@ -18,7 +18,7 @@
 }
 .header-logo__link{
     position: relative;
-    z-index: 3;
+    z-index: 2;
     margin-right: auto;
 }
 .header-logo{
@@ -44,7 +44,7 @@
 .header__item:before{
     content:"";
     position: absolute;
-    bottom: -3px;
+    bottom: -2px;
     left: 0;
     width: 0;
     border-top: 1px solid #C603D7;
@@ -67,10 +67,10 @@
 
 .header-button{
     font-family: "Montserrat";
-    padding: 10px 40px;
+    padding: 10px 45px;
     color: #C603D7;
     background-color: transparent;
-    border: 1px solid transparent;
+    border: 1.5px solid transparent;
     border-radius: 10px;
     transition: border-color 0.3s ease-out;
 }
@@ -81,7 +81,7 @@
     height: 80%;
     margin: 0 0 0 7%;
     cursor: pointer;
-    z-index: 3;
+    z-index: 2;
     transition: filter 0.3s ease;
 }
 .header-menu:hover{
@@ -117,7 +117,7 @@
     width: 100%;
     height: 70vh;
     padding: 20px;
-    z-index: 10;
+    z-index: 3;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -130,13 +130,12 @@
     position: relative;
     width: 20%;
     padding: 15px 0 15px 10px;
-    border: 1px solid transparent;
-    border-bottom: 1px solid #90069C;
+    border: 2px solid transparent;
+    border-bottom: 2px solid #c503d780;
     transition: border 0.2s ease;
-
 }
 .catalog-menu__item:hover {
-    border: 1px solid #C603D7;
+    border: 2px solid #C603D7;
 
 }
 
@@ -282,9 +281,6 @@
 
 /*!!!!!!!!!!!!!!!!!  MENU !!!!!!!!!!!!!!!!!*/
 
-body.lock{
-    overflow: hidden;
-}
 .burger-menu__container{
     min-width: 30%;
     height: 100%;
@@ -293,7 +289,7 @@ body.lock{
     right: -50%;
     z-index: 3;
     background-color: var(--color-bg);
-    transition: background-color 0.3s ease, right 0.8s ease;
+    transition: background-color 0.3s ease, right 0.7s ease;
 }
 .burger-menu{
     display: flex;
@@ -421,6 +417,7 @@ div:before {transform: rotate(-45deg);}
 
 /*!!!!!!!!!!!!!!!!!  FOOTER !!!!!!!!!!!!!!!!!*/
 .footer{
+    background-color: var(--color-bg-header);
     box-shadow: 0 -2px 20px #9747FF;
     width: 100%;
     margin: 300px auto;
@@ -478,7 +475,7 @@ div:before {transform: rotate(-45deg);}
     width: 100%;
     text-align: center;
     font-family: "Montserrat", sans-serif;
-    font-weight: 350;
+    font-weight: 400;
     font-size: 15px;
     color: #c603d7;
 }
@@ -519,7 +516,7 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
     font-size: 40px;
     margin-bottom: 20px;
-    text-shadow: 0 0 20px #c503d7;
+    text-shadow: 0 0 20px #90069C;
 
 }
 .components__item {
