@@ -16,7 +16,6 @@ $(document).ready(function () {
         }
     });
 
-
     $('.burger-menu__theme-dark').click(function (event) {
         if ($('body').hasClass('light')) {
             $('body').removeClass('light');
@@ -32,7 +31,6 @@ $(document).ready(function () {
             $('.burger-menu__theme-light').css('cursor', 'pointer');
             $('.burger-menu__theme-dark').css('cursor', 'default');
         }
-
         if ($('body').hasClass('light')) {
             $('.burger-menu__theme-dark').css('cursor', 'pointer');
             $('.burger-menu__theme-light').css('cursor', 'default');
@@ -46,13 +44,11 @@ $(document).ready(function () {
     }
     );
 
-
     $('.header-button').click(function (event) {
         $('body').css('overflow-y', "hidden");
-        $('.catalog-menu').addClass('active');
+        $('.catalog-menu-container').addClass('active');
         $(".blackout").addClass('active');
     });
-
 }
 );
 
@@ -67,14 +63,12 @@ $(document).mouseup(function (e) { // событие клика по веб-до
             $(".blackout").removeClass('active');
         }
     } else {
-        var div2 = $(".catalog-menu"); // тут указываем ID элемента
+        var div2 = $(".catalog-menu-container"); // тут указываем ID элемента
         if (!div2.is(e.target)
             && div2.has(e.target).length === 0) {
             $(div2).removeClass('active');
             $('body').css('overflow-y', "visible");
             $(".blackout").removeClass('active');
-
-
         }
     }
 }

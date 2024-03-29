@@ -1,0 +1,69 @@
+{% extends "general/home.html" %}
+
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'general/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'shopapp/css/shopapp.css' %}">
+<link rel="stylesheet" href="{% static 'goods/css/goods.css' %}">
+<link rel="stylesheet" href="{% static 'goods/css/product.css' %}">
+{% endblock %}
+
+{% block main_content %}
+<div class="_container product_content">
+    <div class="wrapper-product">
+        <div class="left-column">
+            <div class="wrapper-product__item product-images">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                    <img src="{% static "goods/img/image-not-found2.png" %}" alt="">
+                {% endif %}
+                {% if product.discount %}
+                    <div class="discount_container">
+                        -{{ product.discount }} %
+                    </div>
+                {% endif %}
+            </div>
+            <div class="wrapper-product__item container-product">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, fuga dolores. Voluptatem dignissimos laboriosam vel labore sed ducimus at, minus aliquid quasi voluptate ipsum tempore minima expedita dicta quisquam eaque?</p>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="wrapper-product__item container-product">
+                <p class="title product-title">{{ product.name }}</p>
+                <div class="product-id">
+                    <p>id: {{ product.display_id }}</p>
+                </div>
+                
+                {% if product.quantity %}
+                    <div class="product-availability">
+                        <img src="{% static "goods/img/tick.png" %}" alt="">
+                        <p>In stock</p>
+                    </div>
+                {% else %}
+                    <div class="product-availability outofstock">
+                        <img src="{% static "goods/img/cross.png" %}" alt="">
+                        <p>Out of stock</p>
+                    </div>
+                {% endif %}
+
+                {% if product.discount %}
+                        <p class="product-price product-oldprice">{{ product.price }} $</p><br>
+                        <p class="product-price">{{ product.discount_price }} $</p>
+                {% else %}
+                    <p class="product-price">{{ product.price }} $</p>
+                {% endif %}
+
+                <a href="" class="product-button-buy">
+                    Buy
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

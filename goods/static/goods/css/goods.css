@@ -17,7 +17,8 @@
     overflow: hidden;
     background-color: var(--color-bg-header );
     border-radius: 8px;
-    box-shadow: 0 0 10px #C603D7 inset, 0 0 10px #C603D7 ;
+    box-shadow: 0 0 10px #C603D7 inset, 0 0 10px #C603D7;
+    transition: background-color 0.3s ease;
 }
 .catalog__item-container {
     padding: 0 10px;

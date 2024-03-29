@@ -17,7 +17,7 @@
 <div class="main_content">
     <div class="_container _container-catalog">
         <div class="catalog-container">
-            {% for product in goods %}
+            {% for product in products %}
                 <div class="catalog__item">
                     {% if product.image %}
                         <img src="{{ product.image.url }}" alt="{{ product.name }}" class="catalog__item-img">
@@ -25,7 +25,7 @@
                         <img src="{% static "goods/img/image-not-found2.png" %}" alt="" class="catalog__item-img">
                     {% endif %}
                     <div class="catalog__item-container">
-                        <h2 class="subtitle subtitle-goods">{{ product.name }}</h2>
+                        <a href="{% url "catalog:product" product.slug %}"><h2 class="subtitle subtitle-goods">{{ product.name }}</h2></a>
                         {% if product.discount %}
                             <div class="discount_container">
                                 -{{ product.discount }} %
