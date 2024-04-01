@@ -34,10 +34,16 @@
     height: 100%;
     object-fit: contain;
 }
-.discount_container {
+.discount_container{
+    position: absolute;
+    top: 10px;
+    right: 10px;
     font-size: 22px;
     padding: 6px 18px;
-
+    border-radius: 3px;
+    background-color: #9747FF;
+    color: white;
+    box-shadow: 0 0 10px #9747FF;
 }
 .container-product {
     padding: 10px;

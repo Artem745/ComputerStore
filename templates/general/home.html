@@ -3,8 +3,8 @@
 {% load static %}
 {% load goods_tags %}
 
+
 {% block link %}
-<link rel="stylesheet" href="{% static 'general/css/main.css' %}">
 <link rel="stylesheet" href="{% static 'shopapp/css/shopapp.css' %}">
 {% endblock %}
 
@@ -19,7 +19,12 @@
             <ul class="header__row">
                 <li><a href="#about-us" class="header__item">About us</a></li>
                 <li><a href="#contact" class="header__item">Contact</a></li>  
-                <li><a class="header__item header__item-l" href="{% url "auth:login" %}">Login</a></li>  
+                <li>
+                    <a class="header__item-l" href="{% url "auth:login" %}">
+                        <img src="{% static "shopapp/img/header/login.png" %}" alt="">
+                        <p class="header__item">Login</p>
+                    </a>
+                </li>  
             </ul>
             <img class="header-menu" src="{% static 'shopapp/img/header/menu.png' %}" alt="menu">
         </div>
@@ -31,7 +36,7 @@
                 {% tag_categories as categories %}
                 {% for category in categories %}
                 <li>
-                    <a href="{% url "goods:catalog" %}">
+                    <a href="{% url "catalog:index" category.slug %}">
                         <div class="catalog-menu__item">
                             <span class="subtitle">{{ category.name }}</span>
                         </div>
@@ -65,7 +70,6 @@
         </div>
     </div>
 
-    <div class="blackout"></div>
     <footer class="footer" id="contact">
         <div class="footer__container _container">
             <ul class="social-links">   
@@ -75,13 +79,14 @@
             </ul>
             <ul class="footer-nav__row">
                 <li><a class="footer-nav__item" href="#home">Home</a></li>
-                <li><a class="footer-nav__item" href="{% url "goods:catalog" %}">Shop</a></li>
+                <li><a class="footer-nav__item" href="{% url "catalog:index" "all" %}">Shop</a></li>
             <li><a class="footer-nav__item" href="#about-us">About us</a></li>
             </ul>
             <p class="footer-copyright">&copy; 2024 Comptech Inc. All Rights Reserved</p>
         </div>
     </footer>
 </div>
+<div class="blackout"></div>
 <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 <script src="{% static 'shopapp/js/script.js' %}"></script>
 {% endblock %}

@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block main_content %}
-<div class="wrapper">
 
     <div class="_container">
         <div class="main">
@@ -23,19 +22,19 @@
         <p class="components-title title">Pick up components for your computer</p>
 
         <div class="components">
-            <a href="#" class="components__item">
+            <a href="{% url "catalog:index" "processors" %}" class="components__item">
                 <img src="{% static "shopapp/img/component/processor.png" %}" alt="Processors">
                 <p>Processors</p>
             </a>
-            <a href="#" class="components__item">
+            <a href="{% url "catalog:index" "videocards" %}" class="components__item">
                 <img class="components__item__videocard" src="{% static "shopapp/img/component/videocard.png" %}" alt="Videocards" >
-                <p>Videocards</p>
+                <p>Video cards</p>
             </a>
-            <a href="#" class="components__item">
+            <a href="{% url "catalog:index" "motherboards" %}" class="components__item">
                 <img class="components__item__motherboard" src="{% static "shopapp/img/component/motherboard.png" %}" alt="Motherboards">
                 <p>Motherboards</p>
             </a>
-            <a href="#" class="components__item">
+            <a href="{% url "catalog:index" "drives" %}" class="components__item">
                 <img src="{% static "shopapp/img/component/drive.png" %}" alt="Drives">
                 <p>Drives</p>
             </a>
@@ -75,6 +74,5 @@
             </div>
         </div>
     </div>
-</div>
 
 {% endblock %}
