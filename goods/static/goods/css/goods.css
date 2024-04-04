@@ -1,4 +1,15 @@
-._container-catalog{
+.main_content {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+/*!!!!!!!!!!!!!!!!!  CATALOG  !!!!!!!!!!!!!!!!!*/
+.wrapper-catalog{
+    width: 100%;
+    margin-left: 5%;
+}
+._container-sort{
     margin-top: 30px;
     padding: 0;
 }
@@ -74,6 +85,11 @@
     color: white;
     box-shadow: 0 0 10px #9747FF;
 }
+
+/*!!!!!!!!!!!!!!!!!  /CATALOG  !!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!  PAGINATOR  !!!!!!!!!!!!!!!!!*/
+
 .paginator {
     display: flex;
     justify-content: center;
@@ -91,7 +107,6 @@
     border-radius: 3px;
     font-weight: 700;
     border: 1px solid #9747ff8e;
-
 }
 .paginator__item a {
     display: block;
@@ -107,31 +122,109 @@
     margin-right: 10px;
 }
 .paginator__item.disabled {
-    visibility: hidden;
+    display: none;
 }
 
+/*!!!!!!!!!!!!!!!!!  /PAGINATOR  !!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!  SORT  !!!!!!!!!!!!!!!!!*/
+
 .sort-container {
-    display: flex;
+    z-index: 1;
     position: relative;
-    justify-content: end;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     height: 50px;
     margin-bottom: 30px;
 }
 .sort-button {
     height: 100%;
-    width: 180px;
+    width: 165px;
     border: 2px solid #C603D7;
-    color: #C603D7; 
-    font-weight: 600;
     border-radius: 5px;
     box-shadow: 0 0 5px #C603D7 inset, 0 0 5px #C603D7;
     background-color: transparent;
-
 }
-.sort-button:not(:last-child){
+.sort-button:not(:last-child) {
     margin-right: 20px;
+}
+.sort-button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+    padding: 0 10px;
+    font-size: 17px;
+    font-weight: 600;
 }
 .sort-button.selected {
     background-color: #C603D7;
+}
+.sort-button.selected a {
     color: #FFFF;
 }
+
+.sort-limit {
+    position: absolute;
+    left: 0;
+    height: 50px;
+    width: 50px;
+}
+.sort-limit-btn {
+    background-color: #C603D7;
+    color: #FFFF;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.sort-limit__row {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 250%;
+    width: 100%;
+    border: 1px solid #C603D7;
+    border-top: transparent;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.sort-limit__row.active {
+    opacity: 1;
+    visibility: visible;
+}
+.sort-limit__item {
+    height: 100%;
+    width: 100%;
+}
+.sort-limit__item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg);
+    font-weight: 700;
+    text-align: center;
+    align-content: center;
+    transform: translateZ(0px);
+}
+.sort-limit__item:not(:last-child) {
+    border-bottom: 1px solid #C603D7;
+}
+
+/*!!!!!!!!!!!!!!!!!  /SORT  !!!!!!!!!!!!!!!!!*/
+
+/*!!!!!!!!!!!!!!!!!  FILTER  !!!!!!!!!!!!!!!!!*/
+
+._container-filter {
+    width: 400px;
+    min-height: 100%;
+    border: 1px solid #C603D7;
+}
+
+/*!!!!!!!!!!!!!!!!!  /FILTER  !!!!!!!!!!!!!!!!!*/

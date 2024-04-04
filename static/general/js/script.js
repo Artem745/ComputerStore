@@ -49,6 +49,9 @@ $(document).ready(function () {
         $('.catalog-menu-container').addClass('active');
         $(".blackout").addClass('active');
     });
+
+
+
 }
 );
 
@@ -63,13 +66,29 @@ $(document).mouseup(function (e) { // событие клика по веб-до
             $(".blackout").removeClass('active');
         }
     } else {
-        var div2 = $(".catalog-menu-container"); // тут указываем ID элемента
-        if (!div2.is(e.target)
-            && div2.has(e.target).length === 0) {
-            $(div2).removeClass('active');
-            $('body').css('overflow-y', "visible");
-            $(".blackout").removeClass('active');
-        }
+        var div2 = $(".catalog-menu-container");
+        if ($(div2).hasClass('active')) {
+            if (!div2.is(e.target)
+                && div2.has(e.target).length === 0) {
+                $(div2).removeClass('active');
+                $('body').css('overflow-y', "visible");
+                $(".blackout").removeClass('active');
+            }
+        } 
     }
 }
 );
+$(document).on('click', function (e) {
+    var target = $(e.target);
+    
+    // Перевіряємо, чи був клік здійснений на кнопці .sort-limit-btn
+    if (target.hasClass('sort-limit-btn')) {
+        target.next('.sort-limit__row').toggleClass('active');
+        target.next('.sort-limit__row')[0].offsetHeight; // Force a repaint
+    } else {
+        // Перевіряємо, чи клік був здійснений поза .sort-limit__row
+        if (!target.closest('.sort-limit__row').length) {
+            $('.sort-limit__row').removeClass('active');
+        }
+    }
+});

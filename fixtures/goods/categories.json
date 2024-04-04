@@ -1,0 +1,58 @@
+[
+    {
+        "model": "goods.categories",
+        "pk": 6,
+        "fields": {
+            "name": "All products",
+            "slug": "all"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 7,
+        "fields": {
+            "name": "PC assemblies",
+            "slug": "pc-assemblies"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 8,
+        "fields": {
+            "name": "Laptops",
+            "slug": "laptops"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 9,
+        "fields": {
+            "name": "Video cards",
+            "slug": "video-cards"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 10,
+        "fields": {
+            "name": "Processors",
+            "slug": "processors"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 11,
+        "fields": {
+            "name": "Motherboards",
+            "slug": "motherboards"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 12,
+        "fields": {
+            "name": "Drives",
+            "slug": "drives"
+        }
+    }
+]

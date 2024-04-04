@@ -1,0 +1,114 @@
+[
+    {
+        "model": "goods.products",
+        "pk": 1,
+        "fields": {
+            "name": "Video card MSI RTX 4090 TI 24Gb",
+            "slug": "video-card-msi-rtx-4090-ti-24gb",
+            "description": null,
+            "image": "",
+            "price": "2291",
+            "discount": "90",
+            "quantity": 1,
+            "category": 9
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 2,
+        "fields": {
+            "name": "Processor Intel Core I9 14900KF",
+            "slug": "processor-intel-core-i9-14900kf",
+            "description": null,
+            "image": "goods_images/intel-core-i9-14900kf-3260ghz-36mb-s1700-box-bx8071514900kf.png",
+            "price": "643",
+            "discount": "0",
+            "quantity": 1,
+            "category": 10
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 3,
+        "fields": {
+            "name": "Motherboard ASUS ROG MAXIMUS Z790 HERO",
+            "slug": "motherboard-asus-rog-maximus-z790-hero",
+            "description": null,
+            "image": "goods_images/asus-rog-maximus-z790-dark-hero-s1700-intel-z790.png",
+            "price": "687",
+            "discount": "0",
+            "quantity": 0,
+            "category": 11
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 4,
+        "fields": {
+            "name": "Memory module Kingston Fury DDR5 32Gb (2x16) Beast Black 6000 MHz",
+            "slug": "memory-module-kingston-fury-ddr5-32gb-2x16-beast-black-6000-mhz",
+            "description": null,
+            "image": "goods_images/338782a5-3f35-11ed-8f4e-001b21ea407b-1400x1400-removebg-preview.png",
+            "price": "137",
+            "discount": "10",
+            "quantity": 1,
+            "category": 12
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 5,
+        "fields": {
+            "name": "Laptop Gigabyte 15.6\" AORUS 15",
+            "slug": "laptop-gigabyte-156-aorus-15",
+            "description": null,
+            "image": "goods_images/770e64e0-ee63-11ed-8f8e-001b21ea407b-1400x1400.png",
+            "price": "1972873",
+            "discount": "50",
+            "quantity": 2,
+            "category": 8
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 6,
+        "fields": {
+            "name": "Video card ASUS RTX 3060 12Gb Dual OC V2 LHR",
+            "slug": "video-card-asus-rtx-3060-12gb-dual-oc-v2-lhr",
+            "description": "",
+            "image": "goods_images/31e2d58d-eaac-11eb-9a60-00155de26f02-1400x1400-removebg-preview_1.png",
+            "price": "359",
+            "discount": "0",
+            "quantity": 3,
+            "category": 9
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 7,
+        "fields": {
+            "name": "RX580",
+            "slug": "rx580",
+            "description": "",
+            "image": "",
+            "price": "100",
+            "discount": "0",
+            "quantity": 1,
+            "category": 9
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 8,
+        "fields": {
+            "name": "Video card Sapphire AMD Radeon RX 5700 XT 8Gb Nitro+ Special Edition",
+            "slug": "video-card-sapphire-amd-radeon-rx-5700-xt-8gb-nitro-special-edition",
+            "description": "",
+            "image": "goods_images/69d2da5a-7b94-11ed-8f89-001b21ea407b-1400x1400-removebg-preview.png",
+            "price": "222",
+            "discount": "10",
+            "quantity": 1,
+            "category": 9
+        }
+    }
+]

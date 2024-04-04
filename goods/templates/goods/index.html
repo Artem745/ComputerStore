@@ -13,76 +13,95 @@
 {% endblock %}
 
 {% block main_content %}
-<div class="main_content">
-    <div class="_container _container-catalog">
-        <div class="sort-container">
-            <form action="{% url "catalog:index" category_url %}" method="get">
-                <button class="sort-button {% if not request.GET.sort_price or request.GET.sort_price == "default" %}selected{% endif %}" type="submit" name="sort_price" value="default">By default</button>
-                <button class="sort-button {% if request.GET.sort_price == "price" %}selected{% endif %}" type="submit" name="sort_price" value="price">Cheaper at first</button>
-                <button class="sort-button {% if request.GET.sort_price == "-price" %}selected{% endif %}" type="submit" name="sort_price" value="-price">Expensive at first</button>
-            </form>
-        </div>
-        <div class="catalog-container">
-            {% for product in products %}
-                <div class="catalog__item">
-                    <a href="{% url "catalog:product" product.slug %}">
-                        {% if product.image %}
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="catalog__item-img">
-                        {% else %}
-                            <img src="{% static "goods/img/image-not-found2.png" %}" alt="" class="catalog__item-img">
-                        {% endif %}
-                    </a>
-
-                    <div class="catalog__item-container">
-                        <a href="{% url "catalog:product" product.slug %}"><h2 class="subtitle subtitle-goods">{{ product.name }}</h2></a>
-                        {% if product.discount %}
-                            <div class="discount_container">
-                                -{{ product.discount }} %
-                            </div>
-                            <div class="price_container">
-                                <h3 class="subtitle subtitle-goods subtitle-price subtitle-price__old">{{ product.price }} $</h3>
-                                <h3 class="subtitle subtitle-goods subtitle-price">{{ product.discount_price }} $</h3>
-                            </div>
-                        {% else %}
-                            <div class="price_container">
-                                <h3 class="subtitle subtitle-goods subtitle-price">{{ product.price }} $</h3>
-                            </div>
-                        {% endif %}
-                        
-                        
-                        <a href="#"><img src="{% static "goods/img/basket.png" %}" alt="" class="basket"></a>
-                    </div>
+<div class="_container main_content">
+    <div class="_container-filter">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    <div class="wrapper-catalog">
+        <div class="_container-sort">
+            <div class="sort-container">
+                <div class="sort-limit">
+                    <div class="sort-limit-btn" type="button">{% if request.GET.limit %}{{ request.GET.limit }}{% else %}3{% endif %}</div>
+                    <ul class="sort-limit__row">
+                        <li class="sort-limit__item"><a href="?{% change_params limit=2 page=1 %}" name="limit" value="2" type="submit">2</a></li>
+                        <li class="sort-limit__item"><a href="?{% change_params limit=3 page=1 %}" name="limit" value="3" type="submit">3</a></li>
+                        <li class="sort-limit__item"><a href="?{% change_params limit=4 page=1 %}" name="limit" value="4" type="submit">4</a></li>
+                    </ul>
                 </div>
-            {% endfor %}
 
-        </div>
-        {% if products.paginator.num_pages > 1 %}
-        <div class="paginator">
-            <ul class="paginator__row">              
-                <li class="paginator__item {% if not products.has_previous %}disabled{% endif %}">
-                    <a href="{% if products.has_previous %}?{% change_params page=1 %}{% endif %}">&lt&lt</a>
-                </li>
+                <div class="sort-button {% if not request.GET.sort_price or request.GET.sort_price == "default" %}selected{% endif %}"><a href="?{% change_params sort_price="default" page=1 %}">By default</a></div>
+                <div class="sort-button {% if request.GET.sort_price == "price" %}selected{% endif %}"><a href="?{% change_params sort_price="price" page=1 %}">Cheaper at first</a></div>
+                <div class="sort-button {% if request.GET.sort_price == "-price" %}selected{% endif %}"><a href="?{% change_params sort_price="-price" page=1 %}">More expensive at first</a></div>
 
-                <li class="paginator__item {% if not products.has_previous %}disabled{% endif %}">
-                    <a href="{% if products.has_previous %}?{% change_params page=products.previous_page_number %}{% endif %}">&lt</a>
-                </li>
-                
-                {% for page in products.paginator.page_range %}
-                {% if page >= products.number|add:-3 and page <= products.number|add:3 %}
-                    <li class="paginator__item {% if products.number == page %}active{% endif %}"><a href="?{% change_params page=page %}">{{ page }}</a></li>
-                {% endif %}
+                {% comment %} <form action="?{% change_params sort_price=value page=1 %}" method="get">
+                    <button class="sort-button {% if not request.GET.sort_price or request.GET.sort_price == "default" %}selected{% endif %}" type="submit" name="sort_price" value="default">By default</button>
+                    <button class="sort-button {% if request.GET.sort_price == "price" %}selected{% endif %}" type="submit" name="sort_price" value="price">Cheaper at first</button>
+                    <button class="sort-button {% if request.GET.sort_price == "-price" %}selected{% endif %}" type="submit" name="sort_price" value="-price">Expensive at first</button>
+                </form> {% endcomment %}
+            </div>
+
+            <div class="catalog-container">
+                {% for product in products %}
+                    <div class="catalog__item">
+                        <a href="{% url "catalog:product" product.slug %}">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="catalog__item-img">
+                            {% else %}
+                                <img src="{% static "goods/img/image-not-found2.png" %}" alt="" class="catalog__item-img">
+                            {% endif %}
+                        </a>
+    
+                        <div class="catalog__item-container">
+                            <a href="{% url "catalog:product" product.slug %}"><h2 class="subtitle subtitle-goods">{{ product.name }}</h2></a>
+                            {% if product.discount %}
+                                <div class="discount_container">
+                                    -{{ product.discount }} %
+                                </div>
+                                <div class="price_container">
+                                    <h3 class="subtitle subtitle-goods subtitle-price subtitle-price__old">{{ product.price }} $</h3>
+                                    <h3 class="subtitle subtitle-goods subtitle-price">{{ product.discount_price }} $</h3>
+                                </div>
+                            {% else %}
+                                <div class="price_container">
+                                    <h3 class="subtitle subtitle-goods subtitle-price">{{ product.price }} $</h3>
+                                </div>
+                            {% endif %}
+                            
+                            
+                            <a href="#"><img src="{% static "goods/img/basket.png" %}" alt="" class="basket"></a>
+                        </div>
+                    </div>
                 {% endfor %}
+            </div>
 
-                <li class="paginator__item {% if not products.has_next %}disabled{% endif %}">
-                    <a href="{% if products.has_next %}?{% change_params page=products.next_page_number %}{% endif %}">&gt</a>
-                </li>
-                
-                <li class="paginator__item {% if not products.has_next %}disabled{% endif %}">
-                    <a href="{% if products.has_next %}?{% change_params page=products.paginator.num_pages %}{% endif %}">&gt&gt</a>
-                </li>
-            </ul>
+            {% if products.paginator.num_pages > 1 %}
+                <div class="paginator">
+                    <ul class="paginator__row">              
+                        <li class="paginator__item {% if not products.has_previous %}disabled{% endif %}">
+                            <a href="{% if products.has_previous %}?{% change_params page=1 %}{% endif %}">&lt&lt</a>
+                        </li>
+        
+                        <li class="paginator__item {% if not products.has_previous %}disabled{% endif %}">
+                            <a href="{% if products.has_previous %}?{% change_params page=products.previous_page_number %}{% endif %}">&lt</a>
+                        </li>
+                        
+                        {% for page in products.paginator.page_range %}
+                        {% if page >= products.number|add:-3 and page <= products.number|add:3 %}
+                            <li class="paginator__item {% if products.number == page %}active{% endif %}"><a href="?{% change_params page=page %}">{{ page }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+        
+                        <li class="paginator__item {% if not products.has_next %}disabled{% endif %}">
+                            <a href="{% if products.has_next %}?{% change_params page=products.next_page_number %}{% endif %}">&gt</a>
+                        </li>
+                        
+                        <li class="paginator__item {% if not products.has_next %}disabled{% endif %}">
+                            <a href="{% if products.has_next %}?{% change_params page=products.paginator.num_pages %}{% endif %}">&gt&gt</a>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
         </div>
-        {% endif %}
     </div>
 </div>
 {% endblock %}

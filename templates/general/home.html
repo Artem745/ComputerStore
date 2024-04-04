@@ -17,14 +17,20 @@
             <a class="header-logo__link" href="{% url "shopapp:home" %}"><img class="header-logo" src="{% static 'shopapp/img/header/logo.png' %}" alt="logo"></a>
             <button class="header-button">Catalog</button>
             <ul class="header__row">
-                <li><a href="#about-us" class="header__item">About us</a></li>
-                <li><a href="#contact" class="header__item">Contact</a></li>  
                 <li>
                     <a class="header__item-l" href="{% url "auth:login" %}">
                         <img src="{% static "shopapp/img/header/login.png" %}" alt="">
                         <p class="header__item">Login</p>
                     </a>
                 </li>  
+                <li>
+                    <form action="{% url "catalog:search" %}" method="get" id="searchform">
+                        <div class="header-search__container">
+                            <input type="text" class="header-search" placeholder="Search..." name="q" autocomplete="off">
+                            <a class="search-img" onclick="document.getElementById('searchform').submit()"><img src="{% static "shopapp/img/header/search2.png" %}" alt=""></a>
+                        </div>
+                    </form>
+                </li>
             </ul>
             <img class="header-menu" src="{% static 'shopapp/img/header/menu.png' %}" alt="menu">
         </div>
@@ -88,5 +94,5 @@
 </div>
 <div class="blackout"></div>
 <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
-<script src="{% static 'shopapp/js/script.js' %}"></script>
+<script src="{% static 'general/js/script.js' %}"></script>
 {% endblock %}
