@@ -24,7 +24,7 @@ from computershop import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shopapp.urls', namespace="shopapp")),
-    path('', include('users.urls', namespace="auth")),
+    path('', include('users.urls', namespace="user")),
     path('catalog/', include('goods.urls', namespace="catalog")),
 
 ]

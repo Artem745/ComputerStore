@@ -53,9 +53,6 @@
     content:"";
     bottom: -3px;
 }
-.header__item:hover:before{
-    width: 100%;
-}
 .header__item-l{
     position: relative;
     display: flex;
@@ -65,17 +62,18 @@
 .header__item-l img{
     width: 25px;
 }
-
+.header__item-l:hover p:before{
+    width: 100%;
+}
 .header-search__container {
     display: flex;
     position: relative;
     align-items: center;
     background-color: #d2b2ff;
-    border: 2px solid #C603D7   ;
+    border: 2px solid #C603D7;
     border-radius: 3px;
     width: 300px;
     height: 35px;
-
 }
 .header-search {
     display: block;
@@ -137,6 +135,7 @@
 /*!!!!!!!!!!!!!!!!! /HEADER !!!!!!!!!!!!!!!!!*/
 
 /*!!!!!!!!!!!!!!!!!  CATALOG  !!!!!!!!!!!!!!!!!*/
+
 .catalog-menu-container{
     width: 100%;
     height: 80%;
@@ -174,7 +173,6 @@
 }
 .catalog-menu__item:hover {
     border: 2px solid #C603D7;
-
 }
 
 /*!!!!!!!!!!!!!!!!!  /CATALOG  !!!!!!!!!!!!!!!!!*/

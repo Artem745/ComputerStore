@@ -1,4 +1,4 @@
-{% extends "general/base.html" %}
+{% extends "base.html" %}
 
 {% load static %}
 {% load goods_tags %}
@@ -18,7 +18,7 @@
             <button class="header-button">Catalog</button>
             <ul class="header__row">
                 <li>
-                    <a class="header__item-l" href="{% url "auth:login" %}">
+                    <a class="header__item-l" href="{% url "user:login" %}">
                         <img src="{% static "shopapp/img/header/login.png" %}" alt="">
                         <p class="header__item">Login</p>
                     </a>
@@ -94,5 +94,5 @@
 </div>
 <div class="blackout"></div>
 <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
-<script src="{% static 'general/js/script.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
