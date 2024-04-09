@@ -3,7 +3,7 @@ body{
     padding: 0 30px;
     overflow: hidden;
 }
-h1, h2, button, label{
+h1, h2, button, label, a{
     font-family: "Inter";
     font-size: 20px;
     font-weight: 600;
@@ -24,8 +24,6 @@ h1{
 }
 
 
- 
-
 
 
 input:-webkit-autofill,
@@ -38,11 +36,11 @@ input:-webkit-autofill:focus {
 .auth-main {
     background-color: #0D0316;
     max-width: 500px;
-    height: 80%;
+    height: 85%;
     border: 3px solid #8800FF;
     box-shadow: 0 0 15px #8800FF, 0 0 30px #8800FF, 0 0 15px #8800FF;
     border-radius: 20px;
-    margin: 0 auto;
+    margin: 50px auto 0 auto;
 }
 .auth-container {
     padding: 0 25px;
@@ -52,14 +50,11 @@ input:-webkit-autofill:focus {
     height: 100%;
     margin: 0 auto;
 }
-.auth-header{ 
-    height: 15%;
-}
-
-.auth-header img{
-    width: 70px;
-    margin-top: 30px;
-}  
+.auth-logo{ 
+    position: absolute;
+    top: 30px;
+    width: 80px;
+} 
 
 @media(max-width:700px) {
     .auth-header img{
@@ -78,7 +73,6 @@ input:-webkit-autofill:focus {
     margin: 15px 0 40px 0;
 }
 .auth-form {
-    height: 50%;
     position: relative;
 }
 .auth-input {
@@ -96,24 +90,40 @@ input:-webkit-autofill:focus {
 .auth-input:focus {
     box-shadow: 0 0 10px #8800FF, 0 0 5px #8800FF;
 }
-
+.non_field_errors ul li{
+    color: #c70000;
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+.signup-errors ul li {
+    color: #c70000;
+    font-size: 16px;
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+.auth-forgot {
+    color: #9747FF;
+    font-size: 18px;
+}
 .auth-button {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -10px;
+    bottom: -80px;
     width: 200px;
     height: 45px;
     margin: 0 auto;
     border: 2px solid #9747FF;
     border-radius: 10px;
-    background-color: transparent;
+    color: #ffffff;
+    background-color: #6D32BA;
     font-size: 24px;
 }
-
 .anotherway {
+    position: relative;
+    bottom: -120px;
+    align-self: center;    
     display: flex;
-    margin: 70px auto 5px auto;
     align-items: center;
 }
 .auth-title__signup{

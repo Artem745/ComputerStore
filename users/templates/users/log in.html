@@ -1,20 +1,49 @@
-{% extends 'users/auth.html' %}
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'users/css/auth.css' %}">
+{% endblock %}
 
 {% block title %}
 {{ title }}
 {% endblock %}
 
-{% block auth-title %}
-Log in to your account
-{% endblock %}
+{% block content %}
+<a href="{% url "shopapp:home" %}"><img src="{% static "users/img/logo.png" %}" alt="logo" class="auth-logo"></a>
 
-{% block anotherway %}
-<h2 class="auth-subtitle">Don't have an account?</h2>
-<a href="{% url "user:signup" %}">
-    <h1 class="auth-title auth-title__signup">Sign up</h1>
-</a>
-{% endblock %}
+<div class="auth-main">
+    <div class="auth-container">
+        <h1 class="auth-title">Log in to your account</h1>
+        <h2 class="auth-subtitle">Using the service</h2>
+        <div class="auth-services"></div>
 
-{% block auth-button %}
-Log in
+        {% if form.non_field_errors %}
+            <div class="non_field_errors">
+                {{form.non_field_errors}}
+            </div>
+        {% endif %}
+        <form action="{% url "user:login" %}" method="post" class="auth-form">
+            {% csrf_token %}
+            <label for="id_username">
+              Email:<br>
+              <input type="text" name="username" value="{% if form.username.value %}{{ form.username.value }}{% endif %}" id="id_username" class="auth-input" required><br>
+            </label>
+            <label for="id_password">
+                Password:<br>
+                <input type="password" name="password" id="id_password" class="auth-input" required><br>
+            </label>
+            <a href="#" class="auth-subtitle auth-forgot">Forgot password?</a>
+            <button class="auth-button auth-title" type="submit">Log in</button> 
+        </form>
+
+        <div class="anotherway">
+            <h2 class="auth-subtitle">Don't have an account?</h2>
+            <a href="{% url "user:signup" %}">
+                <h1 class="auth-title auth-title__signup">Sign up</h1>
+            </a>
+        </div>
+    </div>
+</div>
 {% endblock %}

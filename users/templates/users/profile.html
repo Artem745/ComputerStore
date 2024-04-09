@@ -1,0 +1,13 @@
+{% extends "home.html" %}
+
+{% block main_content %}
+<div>
+    <p class="subtitle">
+        Звать тебя {{ user.username }}, а твоя почта: {{ user.email }}
+    </p>
+    <br><br><br><br><br><br><br><br><br><br>
+    <a href="{% url "user:logout" %}" class="subtitle">
+        logout
+    </a>
+</div>
+{% endblock %}

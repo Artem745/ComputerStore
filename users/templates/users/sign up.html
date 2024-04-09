@@ -1,27 +1,72 @@
-{% extends 'users/auth.html' %}
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'users/css/auth.css' %}">
+{% endblock %}
 
 {% block title %}
 {{ title }}
 {% endblock %}
 
-{% block auth-title %}
-Sign up
-{% endblock %}
+{% block content %}
+<a href="{% url "shopapp:home" %}"><img src="{% static "users/img/logo.png" %}" alt="logo" class="auth-logo"></a>
 
-{% block signup %}
-<label>
-    Confirm password:<br>
-    <input type="password" name="confirm password" class="auth-input"/><br>
-</label>
-{% endblock %}
+<div class="auth-main">
+    <div class="auth-container">
+        <h1 class="auth-title">Sign up</h1>
+        <h2 class="auth-subtitle">Using the service</h2>
+        <div class="auth-services"></div>
 
-{% block anotherway %}
-<h2 class="auth-subtitle">Already have an account?</h2>
-<a href="{% url "user:login" %}">
-    <h1 class="auth-title auth-title__signup">Log in</h1>
-</a>
-{% endblock %}
+        <form action="{% url "user:signup" %}" method="post" class="auth-form">
+            {% csrf_token %}
+            <label for="id_email">
+              Email:<br>
+              <input type="email" id="id_email" name="email" class="auth-input" required><br>
+            </label>
+            {% if form.email.errors %}
+                <div class="signup-errors">
+                    {{form.email.errors}}
+                </div>
+            {% endif %}
 
-{% block auth-button %}
-Sign up
+            <label for="id_username">
+                Name:<br>
+                <input type="text" id="id_username" name="username" class="auth-input" required><br>
+            </label>
+            {% if form.username.errors %}
+            <div class="signup-errors">
+                {{form.username.errors}}
+            </div>
+            {% endif %}
+
+            <label for="id_password1">
+                Password:<br>
+                <input type="password" id="id_password1" name="password1" class="auth-input" required><br>
+            </label>
+            {% if form.password1.errors %}
+                <div class="signup-errors">
+                    {{form.password1.errors}}
+                </div>
+            {% endif %}
+            <label for="id_password2">
+                Confirm password:<br>
+                <input type="password" id="id_password2" name="password2" class="auth-input" required><br>
+            </label>
+            {% if form.password2.errors %}
+                <div class="signup-errors">
+                    {{form.password2.errors}}
+                </div>
+            {% endif %}
+            <button class="auth-button auth-title">Sign up</button>
+        </form>
+        <div class="anotherway">
+            <h2 class="auth-subtitle">Already have an account?</h2>
+            <a href="{% url "user:login" %}">
+                <h1 class="auth-title auth-title__signup">Log in</h1>
+            </a>
+        </div>
+    </div>
+</div>
 {% endblock %}

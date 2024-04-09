@@ -7,13 +7,12 @@ class Categories(models.Model):
 
     class Meta:
         db_table = "category"
-        verbose_name= "category"
-        verbose_name_plural= "categories"
-
-
+        verbose_name = "category"
+        verbose_name_plural = "categories"
 
     def __str__(self):
         return self.name
+
 
 class Products(models.Model):
     name = models.CharField(max_length=150, unique=True)
@@ -27,17 +26,17 @@ class Products(models.Model):
 
     class Meta:
         db_table = "product"
-        verbose_name= "product"
-        verbose_name_plural= "products"
+        verbose_name = "product"
+        verbose_name_plural = "products"
         ordering = ("id",)
 
     def __str__(self):
-        return f'{self.name}, quantity: {self.quantity}'
-    
+        return f"{self.name}, quantity: {self.quantity}"
+
     def display_id(self):
-        return f'{self.id:05}'
+        return f"{self.id:05}"
 
     def discount_price(self):
         if self.discount:
-            return round(self.price - self.price*self.discount/100, 0)
+            return round(self.price - self.price * self.discount / 100, 0)
         return self.price

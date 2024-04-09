@@ -86,7 +86,7 @@
 .product-availability.outofstock {
     width: 160px;
     background-color: #eddadae7;
-    border: 2px solid #8d1414;
+    border: 2px solid #c70000;
 }
 .product-availability.outofstock p {
     color: #932121;   

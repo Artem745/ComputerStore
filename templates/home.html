@@ -18,16 +18,27 @@
             <button class="header-button">Catalog</button>
             <ul class="header__row">
                 <li>
+                    {% if user.is_authenticated %}
+                    <a class="header__item-l" href="{% url "user:profile" %}">
+                        {% if user.is_admin or user.is_staff %}
+                        <img src="{% static "shopapp/img/header/profile/user_admin.png" %}" alt="">
+                        {% else %}
+                        <img src="{% static "shopapp/img/header/profile/user.png" %}" alt="">
+                        {% endif %}
+                        <p class="header__item">{{ user.username }}</p>
+                    </a>
+                    {% else %}
                     <a class="header__item-l" href="{% url "user:login" %}">
                         <img src="{% static "shopapp/img/header/login.png" %}" alt="">
                         <p class="header__item">Login</p>
                     </a>
+                    {% endif %}
                 </li>  
                 <li>
                     <form action="{% url "catalog:search" %}" method="get" id="searchform">
                         <div class="header-search__container">
                             <input type="text" class="header-search" placeholder="Search..." name="q" autocomplete="off">
-                            <a class="search-img" onclick="document.getElementById('searchform').submit()"><img src="{% static "shopapp/img/header/search2.png" %}" alt=""></a>
+                            <a class="search-img" onclick="document.getElementById('searchform').submit()"><img src="{% static "shopapp/img/header/search.png" %}" alt=""></a>
                         </div>
                     </form>
                 </li>
