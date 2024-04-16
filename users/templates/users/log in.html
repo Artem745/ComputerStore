@@ -17,23 +17,38 @@
     <div class="auth-container">
         <h1 class="auth-title">Log in to your account</h1>
         <h2 class="auth-subtitle">Using the service</h2>
-        <div class="auth-services"></div>
+        <div class="auth-services">
+            <a href="{% url "social:begin" "google-oauth2" %}" class="auth-service">
+                <img src="{% static "users/img/google_logo.png" %}" alt="">
+                <p>Login with Google</p>
+            </a>
+        </div>
 
         {% if form.non_field_errors %}
             <div class="non_field_errors">
-                {{form.non_field_errors}}
+                {{ form.non_field_errors }}
             </div>
         {% endif %}
         <form action="{% url "user:login" %}" method="post" class="auth-form">
             {% csrf_token %}
-            <label for="id_username">
+            {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{request.GET.next}}">
+            {% endif %}
+
+            <label for="id_email">
               Email:<br>
-              <input type="text" name="username" value="{% if form.username.value %}{{ form.username.value }}{% endif %}" id="id_username" class="auth-input" required><br>
+              <input type="email" name="email" value="{% if form.email.value %}{{ form.email.value }}{% endif %}" id="id_email" class="auth-input" required><br>
             </label>
+            {% if form.email.errors %}
+            <div class="signup-errors">{{form.email.errors}}</div>
+            {% endif %}
             <label for="id_password">
                 Password:<br>
                 <input type="password" name="password" id="id_password" class="auth-input" required><br>
             </label>
+            {% if form.password.errors %}
+            <div class="signup-errors">{{form.password.errors}}</div>
+            {% endif %}
             <a href="#" class="auth-subtitle auth-forgot">Forgot password?</a>
             <button class="auth-button auth-title" type="submit">Log in</button> 
         </form>

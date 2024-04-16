@@ -17,13 +17,18 @@
     <div class="auth-container">
         <h1 class="auth-title">Sign up</h1>
         <h2 class="auth-subtitle">Using the service</h2>
-        <div class="auth-services"></div>
+        <div class="auth-services">
+            <a href="{% url "social:begin" "google-oauth2" %}" class="auth-service">
+                <img src="{% static "users/img/google_logo.png" %}" alt="">
+                <p>Login with Google</p>
+            </a>
+        </div>
 
         <form action="{% url "user:signup" %}" method="post" class="auth-form">
             {% csrf_token %}
             <label for="id_email">
               Email:<br>
-              <input type="email" id="id_email" name="email" class="auth-input" required><br>
+              <input type="email" id="id_email" name="email" class="auth-input" value="{% if form.email.value %}{{ form.email.value }}{% endif %}" required><br>
             </label>
             {% if form.email.errors %}
                 <div class="signup-errors">
@@ -31,13 +36,13 @@
                 </div>
             {% endif %}
 
-            <label for="id_username">
+            <label for="id_name">
                 Name:<br>
-                <input type="text" id="id_username" name="username" class="auth-input" required><br>
+                <input type="text" id="id_name" name="name" class="auth-input" value="{% if form.name.value %}{{ form.name.value }}{% endif %}"><br>
             </label>
-            {% if form.username.errors %}
+            {% if form.name.errors %}
             <div class="signup-errors">
-                {{form.username.errors}}
+                {{form.name.errors}}
             </div>
             {% endif %}
 

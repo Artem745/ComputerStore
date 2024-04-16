@@ -25,7 +25,7 @@
                         {% else %}
                         <img src="{% static "shopapp/img/header/profile/user.png" %}" alt="">
                         {% endif %}
-                        <p class="header__item">{{ user.username }}</p>
+                        <p class="header__item">{% if user.name %}{{ user.name }}{% else %}{{ user.get_short_name }}{% endif %}</p>
                     </a>
                     {% else %}
                     <a class="header__item-l" href="{% url "user:login" %}">
