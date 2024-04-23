@@ -371,8 +371,15 @@ div:before {transform: rotate(-45deg);}
     padding: 0;
     margin: 0 auto;
 }
+.burger-menu__theme-form {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+}
 .burger-menu__theme-container{
     display: flex;
+    position: relative;
     width: 250px;
     height: 22%;
     margin: 2% auto;

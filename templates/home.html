@@ -3,12 +3,11 @@
 {% load static %}
 {% load goods_tags %}
 
-
 {% block link %}
 <link rel="stylesheet" href="{% static 'shopapp/css/shopapp.css' %}">
 {% endblock %}
 
-{% block bodyclass %}dark{% endblock %}
+{% block bodyclass %}{{ request.session.theme|default:"dark" }}{% endblock %}
 
 {% block content %}
 <div class="wrapper">
@@ -79,10 +78,14 @@
             </div>
             <div class="burger-menu__theme">
                 <p class="about-us__text">Change theme</p>
-                <div class="burger-menu__theme-container">
-                    <div class="burger-menu__theme-dark"></div>
-                    <div class="burger-menu__theme-light"></div>
-                </div>
+ 
+                <form id="changeThemeForm" class="burger-menu__theme-form">
+                    {% csrf_token %}
+                    <div class="burger-menu__theme-container">
+                        <button type="button" data-theme="dark" data-url="{% url "shopapp:change_theme" %}" class="changeThemeButton burger-menu__theme-dark" {% if not request.session.theme or request.session.theme == 'dark' %}disabled{% endif %}></button>
+                        <button type="button" data-theme="light" data-url="{% url "shopapp:change_theme" %}" class="changeThemeButton burger-menu__theme-light" {% if request.session.theme == 'light' %}disabled{% endif %}></button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -104,6 +107,8 @@
     </footer>
 </div>
 <div class="blackout"></div>
+
 <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 <script src="{% static 'js/script.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 {% endblock %}

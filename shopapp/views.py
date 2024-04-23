@@ -1,12 +1,16 @@
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.urls import reverse
 
-from goods.models import Categories
-# Create your views here.
 
-def index_page(request):
+def index(request):
 
     context = {
         'title': "Comptech - Home"
     }
     return render(request, "shopapp/index.html", context)
 
+def change_theme(request):
+    theme = request.POST.get('theme')
+    request.session['theme'] = theme
+    return JsonResponse({'status': 'success'})

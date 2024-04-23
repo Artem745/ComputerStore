@@ -32,12 +32,6 @@
                 <div class="sort-button {% if not request.GET.sort_price or request.GET.sort_price == "default" %}selected{% endif %}"><a href="?{% change_params sort_price="default" page=1 %}">By default</a></div>
                 <div class="sort-button {% if request.GET.sort_price == "price" %}selected{% endif %}"><a href="?{% change_params sort_price="price" page=1 %}">Cheaper at first</a></div>
                 <div class="sort-button {% if request.GET.sort_price == "-price" %}selected{% endif %}"><a href="?{% change_params sort_price="-price" page=1 %}">More expensive at first</a></div>
-
-                {% comment %} <form action="?{% change_params sort_price=value page=1 %}" method="get">
-                    <button class="sort-button {% if not request.GET.sort_price or request.GET.sort_price == "default" %}selected{% endif %}" type="submit" name="sort_price" value="default">By default</button>
-                    <button class="sort-button {% if request.GET.sort_price == "price" %}selected{% endif %}" type="submit" name="sort_price" value="price">Cheaper at first</button>
-                    <button class="sort-button {% if request.GET.sort_price == "-price" %}selected{% endif %}" type="submit" name="sort_price" value="-price">Expensive at first</button>
-                </form> {% endcomment %}
             </div>
 
             <div class="catalog-container">
@@ -47,7 +41,7 @@
                             {% if product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="catalog__item-img">
                             {% else %}
-                                <img src="{% static "goods/img/image-not-found2.png" %}" alt="" class="catalog__item-img">
+                                <img src="{% static "goods/img/image-not-found.png" %}" alt="" class="catalog__item-img">
                             {% endif %}
                         </a>
     

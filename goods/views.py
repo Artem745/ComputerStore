@@ -6,20 +6,12 @@ from django.core.paginator import Paginator
 from goods.utils import q_search
 
 
-def index_page(request, category_slug=None):
-    
-    page = request.GET.get('page', 1)
-    sort_price = request.GET.get('sort_price', None)
-    limit = request.GET.get('limit', 3)
-    query = request.GET.get('q', None)
+def index(request, category_slug=None):
 
-    # products = Products.objects.all()
-
-    # if sort_price and sort_price != "default" and len(products) > 1:
-    #     products = products.order_by(sort_price)
-
-    # if category_slug != "all":
-    #     products = get_list_or_404(products.filter(category__slug=category_slug))
+    page = request.GET.get("page", 1)
+    sort_price = request.GET.get("sort_price", None)
+    limit = request.GET.get("limit", 3)
+    query = request.GET.get("q", None)
 
     if category_slug == "all":
         products = Products.objects.all()
@@ -27,21 +19,13 @@ def index_page(request, category_slug=None):
         products = q_search(query)
     else:
         products = Products.objects.filter(category__slug=category_slug)
-    
+
     if len(products) == 0:
         raise Http404("lox")
 
     if sort_price and sort_price != "default" and len(products) > 1:
         products = products.order_by(sort_price)
 
-    # if category_slug == "all":
-    #     products = Products.objects.all()
-    # else:
-    #     products = get_list_or_404(Products.objects.filter(category__slug=category_slug))
-
-    # if sort_price and sort_price != "default" and len(products) > 1:
-    #     products = products.order_by(sort_price)
-    
     paginator = Paginator(products, limit)
     current_page = paginator.page(int(page))
 
@@ -53,7 +37,7 @@ def index_page(request, category_slug=None):
     return render(request, "goods/index.html", context)
 
 
-def product_page(request, product_slug):
+def product(request, product_slug):
     product = Products.objects.get(slug=product_slug)
     context = {
         "title": "Comptech - Product",

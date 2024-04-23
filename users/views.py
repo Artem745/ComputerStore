@@ -38,9 +38,7 @@ def signup(request):
         if form.is_valid():
             form.save()
             user = form.instance
-            auth.login(
-                request, user, backend="django.contrib.auth.backends.ModelBackend"
-            )
+            auth.login(request, user, backend="django.contrib.auth.backends.ModelBackend")
             return HttpResponseRedirect(reverse("shopapp:home"))
         else:
             print(form.errors)

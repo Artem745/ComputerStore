@@ -6,25 +6,37 @@ $(document).ready(function () {
         updateCursor();
     });
 
-    $('.burger-menu__theme-light').click(function (event) {
-        if ($('body').hasClass('dark')) {
-            $('body').removeClass('dark');
-            $('body').addClass('light');
-            updateCursor();
-        } else {
-            $('body').addClass('light');
-        }
+    $('.changeThemeButton').click(function() {
+        var theme = $(this).data('theme');
+        var csrftoken = $('#changeThemeForm [name=csrfmiddlewaretoken]').val();
+            var url = $(this).data('url')
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: {
+                'theme': theme,
+                'csrfmiddlewaretoken': csrftoken,
+            },
+            dataType: 'json',
+            success: function(response) {
+                if ($('body').hasClass('dark')) {
+                    $('body').removeClass('dark');
+                    $('body').addClass('light');
+                    updateCursor();
+                    $('.burger-menu__theme-light').prop('disabled', true);
+                    $('.burger-menu__theme-dark').prop('disabled', false);
+                } else {
+                    if ($('body').hasClass('light')) {
+                        $('body').removeClass('light');
+                        $('body').addClass('dark');
+                        updateCursor();
+                        $('.burger-menu__theme-dark').prop('disabled', true);
+                        $('.burger-menu__theme-light').prop('disabled', false);
+                }}
+            },
+        });
     });
 
-    $('.burger-menu__theme-dark').click(function (event) {
-        if ($('body').hasClass('light')) {
-            $('body').removeClass('light');
-            $('body').addClass('dark');
-            updateCursor();
-        } else {
-            $('body').addClass('dark');
-        }
-    });
 
     function updateCursor() {
         if ($('body').hasClass('dark')) {
@@ -55,8 +67,8 @@ $(document).ready(function () {
 }
 );
 
-$(document).mouseup(function (e) { // событие клика по веб-документу
-    var div = $(".burger-menu__container"); // тут указываем ID элемента
+$(document).mouseup(function (e) {
+    var div = $(".burger-menu__container");
 
     if ($(div).hasClass('active')) {
         if (!div.is(e.target) // если клик был не по нашему блоку
@@ -84,7 +96,7 @@ $(document).on('click', function (e) {
     // Перевіряємо, чи був клік здійснений на кнопці .sort-limit-btn
     if (target.hasClass('sort-limit-btn')) {
         target.next('.sort-limit__row').toggleClass('active');
-        target.next('.sort-limit__row')[0].offsetHeight; // Force a repaint
+        target.next('.sort-limit__row')[0].offsetHeight;
     } else {
         // Перевіряємо, чи клік був здійснений поза .sort-limit__row
         if (!target.closest('.sort-limit__row').length) {
