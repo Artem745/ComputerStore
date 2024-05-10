@@ -14,8 +14,41 @@
 
 {% block main_content %}
 <div class="_container main_content">
-    <div class="_container-filter">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="_container-filter _container-sort">
+        <div class="subtitle filter_quantity">Products found: {{ quantity }}</div>
+        <div class="filter-price">
+            <p class="subtitle">Price</p>
+            <form method="get">
+
+                {% for key, value in request.GET.items %}
+                    {% if key != 'from' and key != 'to' and key != "page"%}
+                        <input type="hidden" name="{{ key }}" value="{{ value }}">
+
+                    {% elif key == 'page' %}
+                        <input type="hidden" name="{{ key }}" value="1">
+                    {% endif %}
+                {% endfor %}
+            
+                <div class="filter-price__form">
+                    <input type="text" name="from" autocomplete="off" value="{{ min }}">
+                    <div>to</div>
+                    <input type="text" name="to" autocomplete="off" value="{{ max }}">
+                    <div>$</div>
+                </div>
+                <br>
+                {% tag_certain_subsategories category_url as sub_categories %}
+                <p class="subtitle">Subcategories</p>
+                <ul>
+                    {% for category in sub_categories %}
+                        <li style="margin-bottom: 5px;">
+                            <a href="{% url "goods:index" category.slug %}">{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <br>
+                <button class="sort-button filter-submit" type="submit">Submit</button>
+            </form>
+        </div>
     </div>
     <div class="wrapper-catalog">
         <div class="_container-sort">

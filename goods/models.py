@@ -2,14 +2,19 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 class Categories(models.Model):
     name = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+    image = models.ImageField(upload_to="categories_images", blank=True, null=True)
+    parent_category = models.ForeignKey('self', related_name='sub_categories', on_delete=models.CASCADE, null=True, blank=True)
 
     class Meta:
         db_table = "category"
         verbose_name = "category"
         verbose_name_plural = "categories"
+        ordering = ("id",)
+
 
     def __str__(self):
         return self.name
@@ -45,9 +50,10 @@ class Products(models.Model):
 
     def removebg_image(self):
         from goods.utils import removebg
+
         if self.image:
-            removebg(old_image_path=f'media/{self.image.name}')
-    
+            removebg(old_image_path=f"media/{self.image.name}")
+
 
 @receiver(post_save, sender=Products)
 def process_product_image(sender, instance, **kwargs):

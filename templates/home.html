@@ -7,29 +7,29 @@
 <link rel="stylesheet" href="{% static 'shopapp/css/shopapp.css' %}">
 {% endblock %}
 
-{% block bodyclass %}{{ request.session.theme|default:"dark" }}{% endblock %}
+{% block bodyclass %}{{ request.session.theme|default:"light" }}{% endblock %}
 
 {% block content %}
 <div class="wrapper">
     <header class="header" id="home">
-        <div class="header__container _container">        
-            <a class="header-logo__link" href="{% url "shopapp:home" %}"><img class="header-logo" src="{% static 'shopapp/img/header/logo.png' %}" alt="logo"></a>
+        <div class="header-container _container">        
+            <a class="header-logo" href="{% url "shopapp:home" %}"><img src="{% static 'shopapp/img/header/logo.png' %}" alt="logo"></a>
             <button class="header-button">Catalog</button>
             <ul class="header__row">
                 <li>
                     {% if user.is_authenticated %}
-                    <a class="header__item-l" href="{% url "user:profile" %}">
+                    <a class="header__item" href="{% url "user:profile" %}">
                         {% if user.is_admin or user.is_staff %}
-                        <img src="{% static "shopapp/img/header/profile/user_admin.png" %}" alt="">
+                            <img src="{% static "shopapp/img/header/profile/user_admin.png" %}" alt="">
                         {% else %}
-                        <img src="{% static "shopapp/img/header/profile/user.png" %}" alt="">
+                            <img src="{% static "shopapp/img/header/profile/user.png" %}" alt="">
                         {% endif %}
-                        <p class="header__item">{% if user.name %}{{ user.name }}{% else %}{{ user.get_short_name }}{% endif %}</p>
+                        <p class="header-name">{% if user.name %}{{ user.name }}{% else %}{{ user.get_short_name }}{% endif %}</p>
                     </a>
                     {% else %}
-                    <a class="header__item-l" href="{% url "user:login" %}">
+                    <a class="header__item" href="{% url "user:login" %}">
                         <img src="{% static "shopapp/img/header/login.png" %}" alt="">
-                        <p class="header__item">Login</p>
+                        <p class="header-name">Login</p>
                     </a>
                     {% endif %}
                 </li>  
@@ -47,19 +47,42 @@
     </header>
 
     <div class="_container catalog-menu-container">
-        <div class="catalog-menu">
-            <ul class="catalog-menu__row">
-                {% tag_categories as categories %}
-                {% for category in categories %}
-                <li>
-                    <a href="{% url "catalog:index" category.slug %}">
-                        <div class="catalog-menu__item">
-                            <span class="subtitle">{{ category.name }}</span>
-                        </div>
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
+        <div class="catalog-menu-wrapper">
+            <div class="catalog-menu">
+                {% tag_categories_with_subcategories as categories %}
+                <ul>
+                    {% for category in categories %}
+                        <li>
+                            <a href="{% url "catalog:index" category.slug %}" class="catalog-menu__category" data-categoryid="{{ category.id }}">
+                                <p class="subtitle">{{ category.name }}</p>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% for category in categories %}
+                <div class="catalog-menu-subcategories" id="{{ category.id }}">
+                    <ul>
+                        {% for sub_category in category.sub_categories.all %}
+                            <li style="margin-bottom: 45px;">
+                                <a href="{% url "catalog:index" sub_category.slug %}" class="catalog-menu__subcategory">
+                                    {% if sub_category.image %}
+                                        <img src="{{ sub_category.image.url }}" alt="">
+                                    {% endif %}
+                                    <p class="subtitle" style="font-weight: 800">{{ sub_category.name }}</p>
+                                </a>
+                                <ul style="margin-left: 70px;">
+                                    {% for sub_sub_category in sub_category.sub_categories.all %}
+                                        <li style="margin-bottom: 15px;">
+                                            <a href="{% url "catalog:index" sub_sub_category.slug %}" class="subtitle subsubcategory-title">{{ sub_sub_category.name }}</ф>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -77,7 +100,7 @@
                 </ul>
             </div>
             <div class="burger-menu__theme">
-                <p class="about-us__text">Change theme</p>
+                <p class="subtitle about-us__text">Change theme</p>
  
                 <form id="changeThemeForm" class="burger-menu__theme-form">
                     {% csrf_token %}
@@ -93,14 +116,14 @@
     <footer class="footer" id="contact">
         <div class="footer__container _container">
             <ul class="social-links">   
-                <li><div class="social-img social-img1"><a href="https://telegram.org/" target="_blank"><img src="{% static 'shopapp/img/footer/social/telegram.png' %}" alt="telegram"></a></div></li>
-                <li><div class="social-img social-img1"><a href="https://www.instagram.com/" target="_blank"><img src="{% static 'shopapp/img/footer/social/instagram.png' %}" alt="instagram"></a></div></li>
-                <li><div class="social-img social-img1"><a href="https://www.facebook.com/" target="_blank"><img src="{% static 'shopapp/img/footer/social/facebook.png' %}" alt="facebook"></a></div></li>
+                <li><a class="social-img" href="https://telegram.org/" target="_blank"><img src="{% static 'shopapp/img/footer/social/telegram.png' %}" alt="telegram"></a></li>
+                <li><a class="social-img" href="https://www.instagram.com/" target="_blank"><img src="{% static 'shopapp/img/footer/social/instagram.png' %}" alt="instagram"></a></li>
+                <li><a class="social-img" href="https://www.facebook.com/" target="_blank"><img src="{% static 'shopapp/img/footer/social/facebook.png' %}" alt="facebook"></a></li>
             </ul>
             <ul class="footer-nav__row">
                 <li><a class="footer-nav__item" href="#home">Home</a></li>
                 <li><a class="footer-nav__item" href="{% url "catalog:index" "all" %}">Shop</a></li>
-            <li><a class="footer-nav__item" href="#about-us">About us</a></li>
+                <li><a class="footer-nav__item" href="#about-us">About us</a></li>
             </ul>
             <p class="footer-copyright">&copy; 2024 Comptech Inc. All Rights Reserved</p>
         </div>

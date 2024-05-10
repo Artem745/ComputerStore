@@ -224,7 +224,43 @@
 ._container-filter {
     width: 400px;
     min-height: 100%;
-    border: 1px solid #C603D7;
 }
+.filter_quantity {
+    color: #9747FF;
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+.filter-price__form {
+    position: relative;
+    display: flex;
+    width: 100%;
+    border: 2px solid #9747FF;
+    border-right: none;
+}
+.filter-price p {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.filter-price__form input {
+    width: 50%;
+    background-color: transparent;
+    padding: 4px 2px;
+    color: #9747FF;
+}
+.filter-price__form div {
+    background-color: #6D32BA;
+    color: #ffffff;
+    border-left: 2px solid #9747FF;
+    border-right: 2px solid #9747FF;
+    align-content: center;
+    padding: 0 5px;
+}
+.filter-submit {
+    background-color: #C603D7;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 20px;
 
+
+}
 /*!!!!!!!!!!!!!!!!!  /FILTER  !!!!!!!!!!!!!!!!!*/

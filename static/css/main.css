@@ -4,16 +4,17 @@
     font-size: 18px;
     color: #C603D7;
 }
-
 body.dark{
-    --color-bg: #070010;
-    --color-bg-header: #0d0316;
+    --color-bg: #0b0514;
+    --color-bg-header: #0e0718;
     --color-theme-border: #D8BAFF;
+    --color-text: #FFFF;
 }
 body.light{
-    --color-bg: #D8BAFF;
-    --color-bg-header: #d2b2ff;
+    --color-bg: #e0c9fd;
+    --color-bg-header: #dac0ff;
     --color-theme-border: #0D0316;
+    --color-text: #000000;
 }
 
 body{
@@ -22,12 +23,10 @@ body{
     background-color: var(--color-bg);
     transition: background-color 0.3s ease;
 }
-
 ._container{
     max-width: 1600px;
     margin: 0 auto;
 }
-
 .title{
     width: 65%;
     max-height: 300px;
@@ -38,7 +37,7 @@ body{
 }
 .subtitle{
     font-family: "Inter";
-    font-weight: 800;
+    font-weight: 700;
     font-size: 30px;
     color: #9747FF;
 }

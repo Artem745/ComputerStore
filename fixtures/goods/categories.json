@@ -1,10 +1,22 @@
 [
     {
         "model": "goods.categories",
-        "pk": 6,
+        "pk": 5,
         "fields": {
             "name": "All products",
-            "slug": "all"
+            "slug": "all",
+            "image": "",
+            "parent_category": null
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 6,
+        "fields": {
+            "name": "Components",
+            "slug": "components",
+            "image": "",
+            "parent_category": null
         }
     },
     {
@@ -12,7 +24,9 @@
         "pk": 7,
         "fields": {
             "name": "PC assemblies",
-            "slug": "pc-assemblies"
+            "slug": "pc-assemblies",
+            "image": "",
+            "parent_category": null
         }
     },
     {
@@ -20,7 +34,9 @@
         "pk": 8,
         "fields": {
             "name": "Laptops",
-            "slug": "laptops"
+            "slug": "laptops",
+            "image": "",
+            "parent_category": null
         }
     },
     {
@@ -28,7 +44,9 @@
         "pk": 9,
         "fields": {
             "name": "Video cards",
-            "slug": "video-cards"
+            "slug": "video-cards",
+            "image": "categories_images/videocard_15099953.png",
+            "parent_category": 6
         }
     },
     {
@@ -36,7 +54,9 @@
         "pk": 10,
         "fields": {
             "name": "Processors",
-            "slug": "processors"
+            "slug": "processors",
+            "image": "categories_images/processor_15099768.png",
+            "parent_category": 6
         }
     },
     {
@@ -44,7 +64,9 @@
         "pk": 11,
         "fields": {
             "name": "Motherboards",
-            "slug": "motherboards"
+            "slug": "motherboards",
+            "image": "categories_images/mainboard_15099660.png",
+            "parent_category": 6
         }
     },
     {
@@ -52,7 +74,159 @@
         "pk": 12,
         "fields": {
             "name": "Drives",
-            "slug": "drives"
+            "slug": "drives",
+            "image": "",
+            "parent_category": null
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 14,
+        "fields": {
+            "name": "HDD",
+            "slug": "hdd",
+            "image": "categories_images/hdd_15099593.png",
+            "parent_category": 12
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 15,
+        "fields": {
+            "name": "Mice",
+            "slug": "mice",
+            "image": "categories_images/mouse_15099723.png",
+            "parent_category": 7
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 16,
+        "fields": {
+            "name": "Keyboards",
+            "slug": "keyboards",
+            "image": "categories_images/keyboard_15099628.png",
+            "parent_category": 7
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 17,
+        "fields": {
+            "name": "SSD",
+            "slug": "ssd",
+            "image": "categories_images/ssd_15099877.png",
+            "parent_category": 12
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 18,
+        "fields": {
+            "name": "Headphones",
+            "slug": "headphones",
+            "image": "categories_images/headphone_15099618.png",
+            "parent_category": 7
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 19,
+        "fields": {
+            "name": "Monitors",
+            "slug": "monitors",
+            "image": "",
+            "parent_category": null
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 20,
+        "fields": {
+            "name": "Game consoles",
+            "slug": "game-consoles",
+            "image": "",
+            "parent_category": null
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 21,
+        "fields": {
+            "name": "PlayStation",
+            "slug": "playstation",
+            "image": "",
+            "parent_category": 20
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 22,
+        "fields": {
+            "name": "Xbox",
+            "slug": "xbox",
+            "image": "",
+            "parent_category": 20
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 23,
+        "fields": {
+            "name": "Nintendo",
+            "slug": "nintendo",
+            "image": "",
+            "parent_category": 20
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 24,
+        "fields": {
+            "name": "Microphone",
+            "slug": "microphone",
+            "image": "categories_images/mic_15099669.png",
+            "parent_category": 7
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 26,
+        "fields": {
+            "name": "NVIDIA video cards",
+            "slug": "nvidia-video-cards",
+            "image": "",
+            "parent_category": 9
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 27,
+        "fields": {
+            "name": "AMD video cards",
+            "slug": "amd-video-cards",
+            "image": "",
+            "parent_category": 9
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 28,
+        "fields": {
+            "name": "Intel processors",
+            "slug": "intel-processors",
+            "image": "",
+            "parent_category": 10
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 29,
+        "fields": {
+            "name": "AMD processors",
+            "slug": "amd-processors",
+            "image": "",
+            "parent_category": 10
         }
     }
 ]

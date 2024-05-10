@@ -13,4 +13,5 @@ def index(request):
 def change_theme(request):
     theme = request.POST.get('theme')
     request.session['theme'] = theme
+    request.session.save()
     return JsonResponse({'status': 'success'})

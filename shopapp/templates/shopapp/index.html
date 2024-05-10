@@ -8,13 +8,18 @@
 
 {% block main_content %}
 
-    <div class="_container">
-        <div class="main">
-            <p class="title">Best computer devices</p>
-            <img src="{% static 'shopapp/img/main/mainimg.png' %}" alt="">
-            <div class="main-button__div">
-                <a href="#"><button class="main-button">SHOP</button></a>
-            </div>
+    <div>
+        {{request.session.theme}}
+    </div>
+
+    <div class="_container main-container">
+        <div class="main-title">
+            <p class="title">Comptech<br></p>
+            <p class="title" style="font-size: 63px; margin-top: 10px;">Best computer devices</p>
+        </div>
+        <img src="{% static 'shopapp/img/main/mainimg.png' %}" alt="">
+        <div class="main-button-wrapper">
+            <a href="#"><button class="main-button">SHOP</button></a>
         </div>
     </div>
 
@@ -24,53 +29,68 @@
         <div class="components">
             <a href="{% url "catalog:index" "processors" %}" class="components__item">
                 <img src="{% static "shopapp/img/component/processor.png" %}" alt="Processors">
-                <p>Processors</p>
+                <p class="subtitle">Processors</p>
             </a>
             <a href="{% url "catalog:index" "video-cards" %}" class="components__item">
                 <img class="components__item__videocard" src="{% static "shopapp/img/component/videocard.png" %}" alt="Videocards" >
-                <p>Video cards</p>
+                <p class="subtitle">Video cards</p>
             </a>
             <a href="{% url "catalog:index" "motherboards" %}" class="components__item">
                 <img class="components__item__motherboard" src="{% static "shopapp/img/component/motherboard.png" %}" alt="Motherboards">
-                <p>Motherboards</p>
+                <p class="subtitle">Motherboards</p>
             </a>
             <a href="{% url "catalog:index" "drives" %}" class="components__item">
                 <img src="{% static "shopapp/img/component/drive.png" %}" alt="Drives">
-                <p>Drives</p>
+                <p class="subtitle">Drives</p>
             </a>
         </div>
     </div>
 
-    <div class="_container">
-        <div class="about-us" id="about-us">
-            <p class="title about-us__title">About us</p>
-            <p class="about-us__text">
-                Welcome to Comptech, your premier destination for top-notch technology solutions. 
-                At Comptech, we offer a curated selection of the latest laptops, desktops, peripherals, and accessories to meet your computing needs. 
-                Experience the difference with Comptech, where quality and customer satisfaction are our top priorities.
-            </p>
-            <p class="title about-us__title about-us__title2">We provide</p>
-            <div class="providings">
-                <div class="provide1">
-                    <img src="{% static 'shopapp/img/main/provide/provide1.png' %}" alt="">
-                    <p class="subtitle provide-title">Free delivery</p>
-                    <p class="subtitle2 provide-subtitle">For all orders from 100$</p>
-                </div>
-                <div class="provide2">
-                    <img src="{% static 'shopapp/img/main/provide/provide2.png' %}" alt="">
-                    <p class="subtitle provide-title">Money refunds</p>
-                    <p class="subtitle2 provide-subtitle">30 days warranty</p>
-                </div>
-                <div class="provide3">
-                    <img src="{% static 'shopapp/img/main/provide/provide3.png' %}" alt="">
-                    <p class="subtitle provide-title">Support 24/7</p>
-                    <p class="subtitle2 provide-subtitle">We work around the clock</p>
-                </div>
-                <div class="provide4">
-                    <img src="{% static 'shopapp/img/main/provide/provide4.png' %}" alt="">
-                    <p class="subtitle provide-title">Fast deivery</p>
-                    <p class="subtitle2 provide-subtitle">In 2-4 buisness days</p>
-                </div>
+    <div class="configurator">
+        <div class="_container configurator-container">
+
+                <img src="{% static "shopapp/img/main/configurator.png" %}" alt="" class="configurator-img">
+
+            <div class="configurator-info">
+                <p class="title configurator-title">Create the PC of your dreams</p>
+                <p class="title configurator-title">With our 
+                    <a href="" class="configurator-title-a">
+                        <span class="title configurator-title" style="text-shadow: none">configurator</span>
+                        <img src="{% static "shopapp/img/main/arrow.png" %}" alt="">
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="_container about-us" id="about-us">
+        <p class="title about-us__title">About us</p>
+        <p class="subtitle about-us__text">
+            Welcome to Comptech, your premier destination for top-notch technology solutions. 
+            At Comptech, we offer a curated selection of the latest laptops, desktops, peripherals, and accessories to meet your computing needs. 
+            Experience the difference with Comptech, where quality and customer satisfaction are our top priorities.
+        </p>
+        <p class="title about-us__title" style="margin: 50px 0 20px 0; font-size: 62px;">We provide</p>
+        <div class="providings">
+            <div class="provide1">
+                <img src="{% static 'shopapp/img/main/provide/provide1.png' %}" alt="">
+                <p class="subtitle provide-title">Free delivery</p>
+                <p class="subtitle2 provide-subtitle">For all orders from 100$</p>
+            </div>
+            <div class="provide2">
+                <img src="{% static 'shopapp/img/main/provide/provide2.png' %}" alt="">
+                <p class="subtitle provide-title">Money refunds</p>
+                <p class="subtitle2 provide-subtitle">30 days warranty</p>
+            </div>
+            <div class="provide3">
+                <img src="{% static 'shopapp/img/main/provide/provide3.png' %}" alt="">
+                <p class="subtitle provide-title">Support 24/7</p>
+                <p class="subtitle2 provide-subtitle">We work around the clock</p>
+            </div>
+            <div class="provide4">
+                <img src="{% static 'shopapp/img/main/provide/provide4.png' %}" alt="">
+                <p class="subtitle provide-title">Fast deivery</p>
+                <p class="subtitle2 provide-subtitle">In 2-4 buisness days</p>
             </div>
         </div>
     </div>

@@ -5,12 +5,13 @@
         "fields": {
             "name": "Video card MSI RTX 4090 TI 24Gb",
             "slug": "video-card-msi-rtx-4090-ti-24gb",
-            "description": null,
+            "description": "",
             "image": "",
             "price": "2291",
             "discount": "90",
             "quantity": 1,
-            "category": 9
+            "category": 26,
+            "removebg": false
         }
     },
     {
@@ -24,7 +25,8 @@
             "price": "643",
             "discount": "0",
             "quantity": 1,
-            "category": 10
+            "category": 10,
+            "removebg": false
         }
     },
     {
@@ -38,7 +40,8 @@
             "price": "687",
             "discount": "0",
             "quantity": 0,
-            "category": 11
+            "category": 11,
+            "removebg": false
         }
     },
     {
@@ -52,7 +55,8 @@
             "price": "137",
             "discount": "10",
             "quantity": 1,
-            "category": 12
+            "category": 12,
+            "removebg": false
         }
     },
     {
@@ -66,7 +70,8 @@
             "price": "1972873",
             "discount": "50",
             "quantity": 2,
-            "category": 8
+            "category": 8,
+            "removebg": false
         }
     },
     {
@@ -80,7 +85,8 @@
             "price": "359",
             "discount": "0",
             "quantity": 3,
-            "category": 9
+            "category": 9,
+            "removebg": false
         }
     },
     {
@@ -94,7 +100,8 @@
             "price": "100",
             "discount": "0",
             "quantity": 1,
-            "category": 9
+            "category": 9,
+            "removebg": false
         }
     },
     {
@@ -108,7 +115,53 @@
             "price": "222",
             "discount": "10",
             "quantity": 1,
-            "category": 9
+            "category": 9,
+            "removebg": false
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 9,
+        "fields": {
+            "name": "Laptop Acer 15.6\" Predator Triton 300",
+            "slug": "laptop-acer-156-predator-triton-300",
+            "description": "",
+            "image": "goods_images/4a3f8b03-ee50-11ed-8f8e-001b21ea407b-1400x1400.png",
+            "price": "1357",
+            "discount": "0",
+            "quantity": 2,
+            "category": 8,
+            "removebg": false
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 10,
+        "fields": {
+            "name": "Drive Samsung m.2 NVMe 1Tb SSD",
+            "slug": "drive-samsung-m2-nvme-1tb-ssd",
+            "description": "",
+            "image": "goods_images/0cbeda53-197a-11ed-8f4b-001b21ea407b-1400x1400.webp",
+            "price": "90",
+            "discount": "0",
+            "quantity": 2,
+            "category": 12,
+            "removebg": false
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 11,
+        "fields": {
+            "name": "Processor Intel Core i5 11400F",
+            "slug": "processor-intel-core-i5-11400f",
+            "description": "",
+            "image": "goods_images/eb6fae32-d474-11ed-8f8e-001b21ea407b-1400x1400.webp",
+            "price": "125",
+            "discount": "0",
+            "quantity": 3,
+            "category": 10,
+            "removebg": false
         }
     }
 ]

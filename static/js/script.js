@@ -6,10 +6,10 @@ $(document).ready(function () {
         updateCursor();
     });
 
-    $('.changeThemeButton').click(function() {
+    $('.changeThemeButton').click(function () {
         var theme = $(this).data('theme');
         var csrftoken = $('#changeThemeForm [name=csrfmiddlewaretoken]').val();
-            var url = $(this).data('url')
+        var url = $(this).data('url')
         $.ajax({
             type: 'POST',
             url: url,
@@ -18,7 +18,7 @@ $(document).ready(function () {
                 'csrfmiddlewaretoken': csrftoken,
             },
             dataType: 'json',
-            success: function(response) {
+            success: function (response) {
                 if ($('body').hasClass('dark')) {
                     $('body').removeClass('dark');
                     $('body').addClass('light');
@@ -32,7 +32,8 @@ $(document).ready(function () {
                         updateCursor();
                         $('.burger-menu__theme-dark').prop('disabled', true);
                         $('.burger-menu__theme-light').prop('disabled', false);
-                }}
+                    }
+                }
             },
         });
     });
@@ -63,6 +64,18 @@ $(document).ready(function () {
     });
 
 
+    $('.catalog-menu__category').mouseenter(function (e) {
+        var categoryid = $(this).data('categoryid');
+        if ($('.catalog-menu__category').hasClass('active')) {
+            $('.catalog-menu__category').removeClass("active");
+        };
+        $(this).addClass('active');
+        if ('.catalog-menu-subcategories') {
+            $('.catalog-menu-subcategories').css("display", "none");
+        };
+        $('#' + categoryid).css("display", "block");
+    }
+    );
 
 }
 );
@@ -86,13 +99,13 @@ $(document).mouseup(function (e) {
                 $('body').css('overflow-y', "visible");
                 $(".blackout").removeClass('active');
             }
-        } 
+        }
     }
 }
 );
 $(document).on('click', function (e) {
     var target = $(e.target);
-    
+
     // Перевіряємо, чи був клік здійснений на кнопці .sort-limit-btn
     if (target.hasClass('sort-limit-btn')) {
         target.next('.sort-limit__row').toggleClass('active');

@@ -10,6 +10,8 @@
 {{ title }}
 {% endblock %}
 
+{% block bodyclass %}{{ request.session.theme|default:"light" }}{% endblock %}
+
 {% block content %}
 <a href="{% url "shopapp:home" %}"><img src="{% static "users/img/logo.png" %}" alt="logo" class="auth-logo"></a>
 
